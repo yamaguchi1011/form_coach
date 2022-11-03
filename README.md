@@ -62,3 +62,5 @@
 
 ## ■画面遷移図URL  
   [画面遷移図](https://www.figma.com/file/lIXmLxF4JsCPWaPm9uNtx7/Untitled?node-id=0%3A1)  
+## ■ER図URL  
+  [ER図](https://drive.google.com/file/d/14uhMI-ZtBRUDjZzYlibmi320XfZ8GGXR/view?usp=sharing)  
