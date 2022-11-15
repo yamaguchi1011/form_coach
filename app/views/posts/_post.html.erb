@@ -1,27 +1,24 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Video:</strong>
-    <%= post.video %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
-
-  <p>
-    <strong>Angle:</strong>
-    <%= post.angle %>
-  </p>
-
-  <p>
-    <strong>Image:</strong>
-    <%= post.image %>
-  </p>
-
-  <p>
-    <strong>Pitching form:</strong>
-    <%= post.pitching_form %>
-  </p>
-
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="post-id-<%= post.id %>">
+    <div class="card">
+      <%= image_tag 'test3.png', class: 'card-img-top', size: '300x200' %>
+      <div class="card-body">
+        <div class='mr10 float-right'>
+          <a href="#"><%= icon 'fas', 'trash', class: 'pr-1' %></a>
+          <a href="#"><%= icon 'fa', 'pen' %></a>
+        </div>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= icon 'far', 'user' %>
+            <%= post.user.name %>
+          </li>
+          <li class="list-inline-item">
+            <%= icon 'far', 'calendar' %>
+            <%= l post.created_at, format: :long %>
+          </li>
+        </ul>
+        <p class="card-text"><%= post.body %></p>
+      </div>
+    </div>
+  </div>
 </div>
