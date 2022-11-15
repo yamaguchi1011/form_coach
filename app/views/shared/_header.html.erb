@@ -12,11 +12,11 @@
       <ul class="navbar-nav ml-auto main-nav align-items-center">
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            投稿
+            <%= Post.model_name.human%>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to '投稿一覧', '#', class: 'dropdown-item' %>
+            <%= link_to t('posts.index.title'), posts_path, class: 'dropdown-item' %>
             <%= link_to '投稿作成', '#', class: 'dropdown-item' %>
           </div>
         </li>
@@ -30,7 +30,7 @@
             <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15'%>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item">名前を表示</div>
+            <div class="dropdown-item"><%= current_user.name %></div>
             <div class="dropdown-divider"></div>
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
 
