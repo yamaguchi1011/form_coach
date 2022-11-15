@@ -86,6 +86,8 @@ GEM
       reline (>= 0.3.1)
     erubi (1.11.0)
     execjs (2.8.1)
+    faker (3.0.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.6.0)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -243,6 +245,7 @@ DEPENDENCIES
   bootsnap
   bootstrap
   debug
+  faker
   font-awesome-sass (~> 6.2.0)
   importmap-rails
   jbuilder

@@ -2,10 +2,12 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
-      board: '掲示板'
+      post: '投稿'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
-        name: '名前'  
+        name: 'ユーザー名'  
+      post:
+        body: '本文'  
