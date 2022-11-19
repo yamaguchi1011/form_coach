@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="post-id-<%= post.id %>">
     <div class="card">
-      <%= image_tag 'test3.png', class: 'card-img-top', size: '300x200' %>
+      <%= video_tag post.video_url, autoplay: true, muted: true, class: 'card-img-top',size: '300x200', controls: true unless post.video.blank?%>
       <div class="card-body">
         <div class='mr10 float-right'>
           <a href="#"><%= icon 'fas', 'trash', class: 'pr-1' %></a>
