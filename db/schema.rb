@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_090601) do
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.string "video", null: false
+    t.string "video"
     t.text "body", null: false
     t.decimal "angle"
     t.string "image"
