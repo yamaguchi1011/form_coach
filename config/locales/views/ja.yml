@@ -27,7 +27,7 @@ ja:
   posts:
     index:
       title: '投稿一覧'
-      no_result: '掲示板がありません'
+      no_result: '投稿がありません'
     new:
       title: '投稿作成'
     bookmarks:
