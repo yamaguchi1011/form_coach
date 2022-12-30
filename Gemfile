@@ -48,6 +48,8 @@ gem "bootsnap", require: false
 
 gem 'bootstrap'
 gem 'font-awesome-sass', '~> 6.2.0'
+gem 'fog-aws'
+gem 'dotenv-rails'
 gem 'jquery-rails'
 
 # Use Sass to process CSS
