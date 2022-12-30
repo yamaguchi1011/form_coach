@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/.env
 
 # Ignore bundler gems.
 vendor/bundle
