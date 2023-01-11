@@ -77,4 +77,4 @@ group :development do
   gem 'pry-byebug'
 end
 
-
+ gem 'sorcery'
