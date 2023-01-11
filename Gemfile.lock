@@ -301,7 +301,10 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
-  pg (~> 1.1)
+
+  mysql2
+  pg
+
   pry-byebug
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
