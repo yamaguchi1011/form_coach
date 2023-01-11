@@ -78,3 +78,7 @@ group :development do
 end
 
  gem 'sorcery'
+
+group :production do
+  gem 'mysql2'
+end
