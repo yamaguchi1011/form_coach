@@ -5,17 +5,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  # resources :posts do
-  #   collection do
-  #     post 'analysis'
-  #   end
-  # end
-  post 'posts_analysis', to: 'posts#analysis'
-  # get 'posts_confirm', to: 'posts#confirm'
-  get 'posts/confirm'
   resources :users, only: %i[new create]
-  
   resources :posts, only: %i[index new create]
-
   
 end
