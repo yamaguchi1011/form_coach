@@ -29,7 +29,7 @@ ja:
       title: '投稿一覧'
       no_result: '投稿がありません'
     new:
-      title: '投稿作成'
+      title: '分析投稿作成'
     bookmarks:
       title: 'ブックマーク一覧'
   profiles:
