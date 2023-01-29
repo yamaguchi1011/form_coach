@@ -10,8 +10,7 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
-
+gem "pg", '1.2.3'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -48,6 +47,8 @@ gem "bootsnap", require: false
 
 gem 'bootstrap'
 gem 'font-awesome-sass', '~> 6.2.0'
+gem 'fog-aws'
+gem 'dotenv-rails'
 gem 'jquery-rails'
 
 # Use Sass to process CSS
@@ -76,3 +77,8 @@ group :development do
   gem 'pry-byebug'
 end
 
+ gem 'sorcery'
+
+group :production do
+  gem 'mysql2'
+end
