@@ -1,0 +1,17 @@
+<%#= form_with model: post, local: true do |f| %>
+<%= form_with model: @post, url: {controller: 'posts', action: 'create'} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+   
+    <%= f.hidden_field :"cache[video]",@post.video.cache_name %>
+  </div>
+
+  <div class='mt-3 mb-3'>
+    
+    <%= video_tag "#{session[:video]["video"]["url"]}", id: :'preview', size: :'300x200', autoplay: :true, muted: :true, controls: :true %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

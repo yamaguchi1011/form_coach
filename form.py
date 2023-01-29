@@ -13,6 +13,9 @@ import shutil
 import cv2
 import glob
 
+import sys
+
+
 mp_pose = mp.solutions.pose
 
 # Initialize MediaPipe pose.
@@ -26,7 +29,9 @@ drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 # サンプルビデオの読み込み＋静止画に分解
 
 # ビデオの指定
-video_path = './video/test2.mp4'
+
+video_path = sys.argv[1]
+print(video_path)
 # 絶対パス　/Users/yamaguchitakashi/form_coach/video/test2.mp4
 # video2images
 
@@ -110,13 +115,16 @@ for name, image in images.items():
   # Draw pose landmarks.
   annotated_image = image.copy()
   # 画像が不鮮明で、座標を取得できない場合はエラーになるので、try文とpass文を使って、例外が出たら何もしないようにする。
+  # 右投げと左投げで取得する座標が違うのでifで分岐させる
+  #右投げの場合ここから
+  # if dominant_arm = right
   try:
     # 角度描画のための定義(ここで３点とxyz座標の変えたら色々な角度が出せる)
     left_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].z
     right_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].z
     right_elbow = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].z
     angle = calculate_angle(left_shoulder, right_shoulder, right_elbow)
-     # 角度を画像内に描画
+    # 角度を画像内に描画
     cv2.putText(annotated_image, 
                             text='angle', 
                             org=(100,50), 
@@ -132,9 +140,36 @@ for name, image in images.items():
                             fontScale=1.0,
                             color=(0,255,0),
                             thickness=2,
-                            lineType=cv2.LINE_4)                           
   except:
     pass
+  # 右投げの場合ここまで
+  # 左投げの場合ここから
+  # else
+  #   left_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].z
+  #   right_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].z
+  #   right_elbow = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].z
+  #   angle = calculate_angle(left_shoulder, right_shoulder, right_elbow)
+  #   # 角度を画像内に描画
+  #   cv2.putText(annotated_image, 
+  #                           text='angle', 
+  #                           org=(100,50), 
+  #                           fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+  #                           fontScale=1.0,
+  #                           color=(0,255,0),
+  #                           thickness=2,
+  #                           lineType=cv2.LINE_4)    
+  #   cv2.putText(annotated_image, 
+  #                           text=str(angle), 
+  #                           org=(100,100), 
+  #                           fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
+  #                           fontScale=1.0,
+  #                           color=(0,255,0),
+  #                           thickness=2,
+  #                           lineType=cv2.LINE_4)          
+  # except:
+  #   pass
+  # 左投げの場合ここまで
+
   # 画像に各ランドマークとそれを繋げる線を描画する
   mp_drawing.draw_landmarks(
       image=annotated_image, 
@@ -185,10 +220,13 @@ for name, image in images.items():
 
 # 処理した画像をmp4動画に変換
 # 既に output.mp4 があれば削除
-if os.path.exists('./output.mp4'):
-    os.remove('./output.mp4')
 
-subprocess.call('ffmpeg -r 10 -i images/%06d.png -vcodec libx264 -pix_fmt yuv420p output.mp4', shell=True)
+if os.path.exists(video_path):
+    os.remove(video_path)
+
+
+subprocess.call('ffmpeg -r 10 -i images/%06d.png -vcodec libx264 -pix_fmt yuv420p {path}'.format(path=video_path), shell=True)
+
 
 
 
