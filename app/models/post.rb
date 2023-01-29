@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  # attr_accessor :video_cache
   mount_uploader :video, VideoUploader
   belongs_to :user
 
