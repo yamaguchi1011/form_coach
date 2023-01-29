@@ -12,7 +12,9 @@ import os
 import shutil
 import cv2
 import glob
+
 import sys
+
 
 mp_pose = mp.solutions.pose
 
@@ -113,7 +115,6 @@ for name, image in images.items():
   # Draw pose landmarks.
   annotated_image = image.copy()
   # 画像が不鮮明で、座標を取得できない場合はエラーになるので、try文とpass文を使って、例外が出たら何もしないようにする。
-
   # 右投げと左投げで取得する座標が違うのでifで分岐させる
   #右投げの場合ここから
   # if dominant_arm = right
@@ -139,7 +140,6 @@ for name, image in images.items():
                             fontScale=1.0,
                             color=(0,255,0),
                             thickness=2,
-                            lineType=cv2.LINE_4)          
   except:
     pass
   # 右投げの場合ここまで
@@ -220,11 +220,13 @@ for name, image in images.items():
 
 # 処理した画像をmp4動画に変換
 # 既に output.mp4 があれば削除
+
 if os.path.exists(video_path):
     os.remove(video_path)
 
 
 subprocess.call('ffmpeg -r 10 -i images/%06d.png -vcodec libx264 -pix_fmt yuv420p {path}'.format(path=video_path), shell=True)
+
 
 
 
