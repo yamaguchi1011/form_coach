@@ -14,7 +14,7 @@ import cv2
 import glob
 
 import sys
-
+from decimal import *
 
 mp_pose = mp.solutions.pose
 
@@ -31,6 +31,9 @@ drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 # ビデオの指定
 
 video_path = sys.argv[1]
+dominant_arm = sys.argv[2]
+print(dominant_arm)
+
 print(video_path)
 # 絶対パス　/Users/yamaguchitakashi/form_coach/video/test2.mp4
 # video2images
@@ -102,86 +105,105 @@ def calculate_angle(a,b,c):
     
     radians = np.arctan2(c[1]-b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
     angle = np.abs(radians*180.0/np.pi)
-    
+    d1 = Decimal(angle)
+    angle_round = d1.quantize(Decimal('0'),rounding=ROUND_HALF_UP)
     # if angle >180.0:
     #     angle = 360-angle
         
-    return angle 
+    return angle_round 
 
 # imagesフォルダにあるimage（xxxxxx.png）に対して姿勢推定処理をしてランドマークと点を描画し、それをimageがあるだけ繰り返す。
-for name, image in images.items():
-  # Convert the BGR image to RGB and process it with MediaPipe Pose.
-  results = pose.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-  # Draw pose landmarks.
-  annotated_image = image.copy()
-  # 画像が不鮮明で、座標を取得できない場合はエラーになるので、try文とpass文を使って、例外が出たら何もしないようにする。
-  # 右投げと左投げで取得する座標が違うのでifで分岐させる
-  #右投げの場合ここから
-  # if dominant_arm = right
-  try:
-    # 角度描画のための定義(ここで３点とxyz座標の変えたら色々な角度が出せる)
-    left_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].z
-    right_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].z
-    right_elbow = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].z
-    angle = calculate_angle(left_shoulder, right_shoulder, right_elbow)
-    # 角度を画像内に描画
-    cv2.putText(annotated_image, 
-                            text='angle', 
-                            org=(100,50), 
-                            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                            fontScale=1.0,
-                            color=(0,255,0),
-                            thickness=2,
-                            lineType=cv2.LINE_4)    
-    cv2.putText(annotated_image, 
-                            text=str(angle), 
-                            org=(100,100), 
-                            fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
-                            fontScale=1.0,
-                            color=(0,255,0),
-                            thickness=2,
-  except:
-    pass
-  # 右投げの場合ここまで
-  # 左投げの場合ここから
-  # else
-  #   left_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].z
-  #   right_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].z
-  #   right_elbow = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].z
-  #   angle = calculate_angle(left_shoulder, right_shoulder, right_elbow)
-  #   # 角度を画像内に描画
-  #   cv2.putText(annotated_image, 
-  #                           text='angle', 
-  #                           org=(100,50), 
-  #                           fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-  #                           fontScale=1.0,
-  #                           color=(0,255,0),
-  #                           thickness=2,
-  #                           lineType=cv2.LINE_4)    
-  #   cv2.putText(annotated_image, 
-  #                           text=str(angle), 
-  #                           org=(100,100), 
-  #                           fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
-  #                           fontScale=1.0,
-  #                           color=(0,255,0),
-  #                           thickness=2,
-  #                           lineType=cv2.LINE_4)          
-  # except:
-  #   pass
-  # 左投げの場合ここまで
 
-  # 画像に各ランドマークとそれを繋げる線を描画する
-  mp_drawing.draw_landmarks(
-      image=annotated_image, 
-      landmark_list=results.pose_landmarks, 
-      connections=mp_pose.POSE_CONNECTIONS,
-      # 描画の色設定
-      landmark_drawing_spec=mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2),
-      connection_drawing_spec=mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2))
-  # 処理した画像を保存する
-  cv2.imwrite(name, annotated_image)  
+# 右投げと左投げで取得する座標が違うのでifで分岐させる
+#右投げの場合ここから
+if dominant_arm == "右":
+  for name, image in images.items():
+    # Convert the BGR image to RGB and process it with MediaPipe Pose.
+    results = pose.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    # Draw pose landmarks.
+    annotated_image = image.copy()
+    # 画像が不鮮明で、座標を取得できない場合はエラーになるので、try文とpass文を使って、例外が出たら何もしないようにする。
+    try:
+      # 角度描画のための定義(ここで３点とxyz座標の変えたら色々な角度が出せる)
+      left_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].z
+      right_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].z
+      right_elbow = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW.value].z
+      angle = calculate_angle(left_shoulder, right_shoulder, right_elbow)
+      # 角度を画像内に描画
+      cv2.putText(annotated_image, 
+                              text='angle', 
+                              org=(100,60), 
+                              fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                              fontScale=3.0,
+                              color=(0,255,0),
+                              thickness=2,
+                              lineType=cv2.LINE_4)    
+      cv2.putText(annotated_image, 
+                              text=str(angle), 
+                              org=(100,200), 
+                              fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
+                              fontScale=3.0,
+                              color=(0,255,0),
+                              thickness=2,)
+    except:
+      pass
+    # 画像に各ランドマークとそれを繋げる線を描画する
+    mp_drawing.draw_landmarks(
+        image=annotated_image, 
+        landmark_list=results.pose_landmarks, 
+        connections=mp_pose.POSE_CONNECTIONS,
+        # 描画の色設定
+        landmark_drawing_spec=mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2),
+        connection_drawing_spec=mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2))
+    # 処理した画像を保存する
+    cv2.imwrite(name, annotated_image)  
   # 画像の名前と、角度を取ってこれる。
   # print(name,angle)
+# 右投げの場合ここまで
+# 左投げの場合ここから
+else:
+  for name, image in images.items():
+    # Convert the BGR image to RGB and process it with MediaPipe Pose.
+    results = pose.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    # Draw pose landmarks.
+    annotated_image = image.copy()
+    # 画像が不鮮明で、座標を取得できない場合はエラーになるので、try文とpass文を使って、例外が出たら何もしないようにする。
+    try:
+      # 角度描画のための定義(ここで３点とxyz座標の変えたら色々な角度が出せる)
+      right_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].z
+      left_shoulder = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER.value].z
+      left_elbow = results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_ELBOW.value].z
+      angle = calculate_angle(right_shoulder, left_shoulder, left_elbow)
+      # 角度を画像内に描画
+      cv2.putText(annotated_image, 
+                              text='angle', 
+                              org=(100,50), 
+                              fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                              fontScale=1.0,
+                              color=(0,255,0),
+                              thickness=2,
+                              lineType=cv2.LINE_4)    
+      cv2.putText(annotated_image, 
+                              text=str(angle), 
+                              org=(100,100), 
+                              fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
+                              fontScale=1.0,
+                              color=(0,255,0),
+                              thickness=2,
+                              lineType=cv2.LINE_4)                           
+    except:
+      pass
+    # 画像に各ランドマークとそれを繋げる線を描画する
+    mp_drawing.draw_landmarks(
+        image=annotated_image, 
+        landmark_list=results.pose_landmarks, 
+        connections=mp_pose.POSE_CONNECTIONS,
+        # 描画の色設定
+        landmark_drawing_spec=mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2),
+        connection_drawing_spec=mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2))
+    # 処理した画像を保存する
+    cv2.imwrite(name, annotated_image)  
+# 左投げの場合ここまで
 
 
 
