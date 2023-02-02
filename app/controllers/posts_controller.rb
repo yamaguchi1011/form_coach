@@ -17,20 +17,23 @@ class PostsController < ApplicationController
     # @post = Post.new(post_params)
     # file_name = params[:post][:video]
     # File.absolute_pathで渡された動画のパスを絶対パスにしてvideo_pathに入れる。
+    
+    
     video_path = File.absolute_path(@post.video.file.path)
+    dominant_arm = @post.dominant_arm
     # session情報を削除する。
     session.delete(:video)
     # sessionにユーザーが渡した情報を入れる
     session[:video] = @post
     
- 
+
     # sessionにparamsの動画の名前を入れる
     # session[:video] = @post.video
   
     # session[:video]["video"]["url"] = @post.video.file.file
     # session[:video]["image"] = @post.video.file.original_filename
-    # Open3.capture3でpythonのコードを実行した後
-    @result = Open3.capture3("python form.py #{video_path}")
+    # Open3.capture3でpythonのコードを実行する。video_pathで動画のURLを、dominant_armで利き腕を渡す。
+    @result = Open3.capture3("python form.py #{video_path} #{dominant_arm}")
 
     
     # @resultに分析後の動画のURLが入っていたら確認画面に遷移する。
@@ -100,7 +103,7 @@ class PostsController < ApplicationController
   def post_params
     # require(:post)があるとエラーになる。confirm.html.erbは@postに値が入っているのでエラーになる？
     # 逆にnew.html.erbは_form.html.erbをrenderする際にpostに@postを渡していて、_form.htmlではpostに値を入れているからちゃんと動く？
-    params.require(:post).permit(:title, :body, :video, :video_cache)
+    params.require(:post).permit(:title, :body, :video, :video_cache, :dominant_arm)
     # params.permit(:title, :body, :video, :video_cache)
   end
 end

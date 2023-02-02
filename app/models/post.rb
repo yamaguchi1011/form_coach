@@ -5,5 +5,5 @@ class Post < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 280}
   validates :video, presence: true
-  
+  validates :dominant_arm, presence: true
 end
