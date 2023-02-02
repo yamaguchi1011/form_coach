@@ -1,6 +1,8 @@
 class VideoUploader < CarrierWave::Uploader::Base
-  # storage :file
-  storage :fog
+  # 開発環境
+  storage :file
+  # 本番環境用AWS S３に保存
+  # storage :fog
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
