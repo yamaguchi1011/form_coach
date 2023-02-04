@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '投稿'
+      comment: 'コメント'
     attributes:
       user:
         email: 'メールアドレス'
@@ -11,3 +12,5 @@ ja:
         name: 'ユーザー名'  
       post:
         body: '本文'  
+      comment:
+        body: 'コメント'
