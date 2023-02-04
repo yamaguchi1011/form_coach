@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  # before_action :set_post, only: %i[ show edit update destroy ]
-  # before_action :post_params, only: analysis
   require "open3"
   def index
     @posts = Post.all.includes(:user).order(created_at: :desc)
@@ -82,7 +80,6 @@ class PostsController < ApplicationController
 
       
     @post = Post.new(post_params)
-    @post.video.retrieve_from_cache! params[:cache][:video]
       
     if @post.save!
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
@@ -100,6 +97,25 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
+  def edit
+    @post = current_user.posts.find(params[:id])
+  end
+  def update
+    @post = current_user.posts.find(params[:id])
+    if @post.update(post_params)
+      redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: Post.model_name.human)
+      render :edit
+    end
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
+  end
+
   private
 
   def post_params
@@ -107,5 +123,9 @@ class PostsController < ApplicationController
     # 逆にnew.html.erbは_form.html.erbをrenderする際にpostに@postを渡していて、_form.htmlではpostに値を入れているからちゃんと動く？
     params.require(:post).permit(:title, :body, :video, :video_cache, :dominant_arm)
     # params.permit(:title, :body, :video, :video_cache)
+  end
+
+  def set_post
+    @post = current_user.posts.find(params[:id])
   end
 end
