@@ -19,6 +19,7 @@
       <div class="row">
         <% if @posts.present? %>
           <%= render @posts %>
+      
         <% else %>
           <p><%= t('.no_result') %></p>
         <% end %>

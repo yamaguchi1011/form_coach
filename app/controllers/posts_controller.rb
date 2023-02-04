@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   require "open3"
   def index
     @posts = Post.all.includes(:user).order(created_at: :desc)
+    
   end
 
   def new
