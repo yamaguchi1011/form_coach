@@ -1,10 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%#= video_tag @post.video.url, class: 'card-img-top img-fluid', size: '300x200' %>
+               <%= video_tag @post.video_url, autoplay: true, muted: true, class: 'card-img-top',size: '300x200', controls: true unless @post.video.blank?%>
+            </div>
+            <div class='col-md-9'>
+              <h3 class="d-inline"><%= @post.body %></h3>
+              <%= render 'crud_menus', post: @post %>
+              <ul class="list-inline">
+                <li class="list-inline-item">by <%= @post.user.name %></li>
+                <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@post.body) %></p>
+        </div>
+      </article>
+    </div>
+  </div>
 
-<%= render @post %>
+  <!-- コメントフォーム -->
+  <%= render 'comments/form', { post: @post, comment: @comment } %>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+  <!-- コメントエリア -->
+  <%= render 'comments/comments', { comments: @comments } %>
 </div>

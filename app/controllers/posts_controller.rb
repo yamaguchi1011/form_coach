@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  # before_action :set_post, only: %i[ show edit update destroy ]
   # before_action :post_params, only: analysis
   require "open3"
   def index
@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     # @post = Post.new(post_params)
     # file_name = params[:post][:video]
     # File.absolute_pathで渡された動画のパスを絶対パスにしてvideo_pathに入れる。
-    
     
     video_path = File.absolute_path(@post.video.file.path)
     dominant_arm = @post.dominant_arm
@@ -96,6 +95,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   private
