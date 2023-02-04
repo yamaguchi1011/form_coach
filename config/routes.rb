@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'posts/confirm'
   resources :users, only: %i[new create]
   
-  resources :posts, only: %i[index new create show] do
+  resources :posts do
     resources :comments, only: %i[create], shallow: true
   end
 

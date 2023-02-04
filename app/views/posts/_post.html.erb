@@ -6,7 +6,7 @@
         <h4 class="card-title">
           <%= link_to post.body, post_path(post) %>
         </h4>
-          <%= render 'crud_menus', post: post %>
+          <%= render 'crud_menus', post: post if current_user.own?(post)%>
           <ul class="list-inline">
             <li class="list-inline-item">
               <%= icon 'far', 'user' %>
