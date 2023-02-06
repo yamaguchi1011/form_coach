@@ -1,0 +1,6 @@
+
+<% if current_user.effective?(comment) %>
+  <%= render 'comments/uneffective', { comment: comment } %>
+<% else %>
+  <%= render 'comments/effective', { comment: comment } %>
+<% end %>

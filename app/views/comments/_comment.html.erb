@@ -13,7 +13,7 @@
       <button class="btn btn-success js-button-comment-update" data-comment-id="<%= comment.id %>">更新</button>
     </div>
   </td>
-
+<%# 自分のコメントであれば編集削除機能が表示される %>
   <% if current_user.own?(comment) %>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
@@ -28,6 +28,19 @@
           </a>
         </li>
       </ul>
+    </td>
+<%# 自分のコメントではなく、自分の投稿であれば効果あったよボタンを追加する。 %>
+  <%elsif current_user.own?(@post)%>
+    <td class="action">
+        <ul class="list-inline justify-content-center" style="float: right;">
+          <li class="list-inline-item">
+            <%= render 'comments/effective_button', comment: comment %>
+          </li>
+        </ul>
+    </td>
+<%# 自分のコメントではなく、自分の投稿でもなければ何も表示しない。%>
+  <%else%>
+    <td class="action">
     </td>
   <% end %>
 </tr>
