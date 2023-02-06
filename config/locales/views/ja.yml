@@ -12,6 +12,7 @@ ja:
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
     post: '投稿'
+    effective: '効果のあったアドバイス'
   users:
     new:
       title: 'ユーザー登録'
@@ -35,12 +36,20 @@ ja:
       no_result: '投稿がありません'
     new:
       title: '分析投稿作成'
-    bookmarks:
-      title: 'ブックマーク一覧'
     show:
       title: '投稿詳細'
     edit:
       title: '投稿編集'
+  comments:
+    effective:
+      title: '効果のあったアドバイス一覧'
+    effectives:
+      no_result: '効果のあったアドバイスがありません'
+  effectives:
+    create:
+      success: 'アドバイスの効果がありました'
+    destroy:
+      success: 'アドバイスの効果がありませんでした'
   profiles:
     show:
       title: 'プロフィール'

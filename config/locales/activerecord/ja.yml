@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       post: '投稿'
       comment: 'コメント'
+      effective: '効果のあったアドバイス'
     attributes:
       user:
         email: 'メールアドレス'

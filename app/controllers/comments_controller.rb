@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+
+  def index
+    @comments = Comment.all.includes([:user, :effective]).order(created_at: :desc)
+  end
   def create
     comment = current_user.comments.build(comment_params)
     if comment.save!
@@ -6,6 +10,10 @@ class CommentsController < ApplicationController
     else
       redirect_to board_path(comment.post), danger: t('defaults.message.created', item: Comment.model_name.human)
     end
+  end
+
+  def effectives
+    @effective_comments = current_user.effective_comments.includes(:user).order(created_at: :desc)
   end
 
   private
