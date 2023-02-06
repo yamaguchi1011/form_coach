@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
   require "open3"
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
-    
+    # includes(:user, :comment)でpostに紐づいたcommentも取ってこれる？
+    @posts = Post.all.includes([:user, :comments]).order(created_at: :desc)
+    # @comments = Comment.includes(:post)
   end
 
   def new
@@ -94,6 +95,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 

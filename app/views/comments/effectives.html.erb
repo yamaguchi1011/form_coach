@@ -1,4 +1,5 @@
 <% content_for(:title, t('.title')) %>
+<%# このアドバイスは効果あったなーと、練習していく中で何度も振り返ることができるように自分がeffectiveをしたコメントの一覧を取ってくる %>
 <div class="container pt-3">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
@@ -14,12 +15,12 @@
     </div>
   </div>
 
-  <!-- 投稿一覧 -->
+  <!-- 効果のあったアドバイス一覧 -->
   <div class="row">
     <div class="col-12">
-      <div class="row">
-        <% if @posts.present? %>
-          <%= render @posts %>
+      <div class="container pt-5">
+        <% if @effective_comments.present? %>
+          <%= render @effective_comments %>
         <% else %>
           <p><%= t('.no_result') %></p>
         <% end %>
