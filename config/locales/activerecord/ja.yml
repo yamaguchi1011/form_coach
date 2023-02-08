@@ -11,6 +11,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: 'ユーザー名'  
+        avatar: 'プロフィール画像'
       post:
         body: '本文'  
       comment:
