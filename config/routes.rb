@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get 'posts_confirm', to: 'posts#confirm'
   get 'posts/confirm'
   resources :users, only: %i[new create]
-  
+
   resources :posts do
     resources :comments, only: %i[create update], shallow: true
     # collection do
@@ -23,5 +23,5 @@ Rails.application.routes.draw do
     end
   end
   resources :effectives, only: %i[create destroy]
-
+  resource :profile, only: %i[show edit update]
 end
