@@ -115,7 +115,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy!
-    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
+    redirect_to request.referer, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
   private

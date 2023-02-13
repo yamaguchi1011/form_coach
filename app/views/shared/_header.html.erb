@@ -21,16 +21,14 @@
           </div>
         </li>
 
-        <li class="nav-item">
-          <%= link_to t('comments.effective.title'), effectives_comments_path, class: 'nav-link' %>
-        </li>
+       
 
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
             <%= image_tag current_user.avatar_url, size: '40x40', class: 'rounded-circle mr15'%>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item"><%= current_user.name %></div>
+            <div class="dropdown-item disabled"><%= current_user.name %></div>
             <div class="dropdown-divider"></div>
         
             <%= link_to (t 'profiles.show.title'), profile_path, class: 'dropdown-item' %>
