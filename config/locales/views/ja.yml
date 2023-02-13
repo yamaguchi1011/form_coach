@@ -54,5 +54,6 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+      no_result: 'まだ投稿していません'
     edit:
       title: 'プロフィール編集'

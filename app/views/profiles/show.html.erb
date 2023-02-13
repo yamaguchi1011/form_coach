@@ -21,4 +21,14 @@
       </table>
     </div>
   </div>
+  <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <h3>posts (<%= @user.posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+    <% else %>
+      <p><%= t('.no_result') %></p>
+    <% end %>
+  </div>
 </div>

@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  # ユーザーが消えてもeffectiveは消えてほしくないのでdependent: :destroyは指定しない。（アドバイザーからすると、コメントに対するいいね数が重要）
+
   has_many :effectives, dependent: :destroy
   # @user.effective_commentsのような形でいいねしているcommentのCollectionを取得できる。
   has_many :effective_comments, through: :effectives, source: :comment
