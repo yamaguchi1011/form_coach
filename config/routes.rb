@@ -12,9 +12,6 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, only: %i[create update], shallow: true
-    # collection do
-    #   get :effectives
-    # end
   end
 
   resources :comments do

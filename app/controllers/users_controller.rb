@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = User.posts.order("created_at DESC")
+    # @posts = User.posts.order("created_at DESC")
   end
 
   def create

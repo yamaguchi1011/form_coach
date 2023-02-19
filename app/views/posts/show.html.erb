@@ -25,9 +25,10 @@
     </div>
   </div>
 
-  <!-- コメントフォーム -->
-  <%= render 'comments/form', { post: @post, comment: @comment } %>
-
-  <!-- コメントエリア -->
-  <%= render 'comments/comments', { comments: @comments } %>
+    <!-- コメントフォーム -->
+    <%= render 'comments/form', { post: @post, comment: @comment } %>
+    <!-- コメントエリア -->
+  <%= turbo_frame_tag "comments" do%>
+    <%= render 'comments/comments', { comments: @comments }%>
+  <% end %>
 </div>
