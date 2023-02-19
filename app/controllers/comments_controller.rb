@@ -1,8 +1,15 @@
 class CommentsController < ApplicationController
 
+
   def index
     @comments = Comment.all.includes([:user, :effective]).order(created_at: :desc)
   end
+
+  def show
+    @comment = Comment
+  end
+
+
   def create
     @comment = current_user.comments.build(comment_params)
     # # @comments = Comment.all.includes([:user, :effective]).order(created_at: :desc)
