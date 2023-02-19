@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_141442) do
     t.text "body", null: false
     t.decimal "angle"
     t.string "image"
-    t.integer "pitching_form"
+    t.integer "pitching_form", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

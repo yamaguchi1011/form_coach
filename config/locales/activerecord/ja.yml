@@ -16,3 +16,10 @@ ja:
         body: '本文'  
       comment:
         body: 'コメント'
+  enums:
+    post:
+      pitching_form:
+        over: 'オーバースロー'
+        three_quarters: 'スリークォーター'
+        side: 'サイドスロー'
+        under: 'アンダースロー'

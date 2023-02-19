@@ -17,11 +17,7 @@ class PostsController < ApplicationController
     # @post = Post.new(post_params)
     # file_name = params[:post][:video]
     # File.absolute_pathで渡された動画のパスを絶対パスにしてvideo_pathに入れる。
-    
- 
-    
-    
-    if @post.body.present? && @post.video.present? && @post.dominant_arm.present?
+    if @post.body.present? && @post.video.present? && @post.dominant_arm && @post.pitching_form.present?
       video_path = File.absolute_path(@post.video.file.path)
       dominant_arm = @post.dominant_arm
       # session情報を削除する。
@@ -130,10 +126,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    # require(:post)があるとエラーになる。confirm.html.erbは@postに値が入っているのでエラーになる？
-    # 逆にnew.html.erbは_form.html.erbをrenderする際にpostに@postを渡していて、_form.htmlではpostに値を入れているからちゃんと動く？
-    params.require(:post).permit(:title, :body, :video, :video_cache, :dominant_arm)
-    # params.permit(:title, :body, :video, :video_cache)
+    params.require(:post).permit(:title, :body, :video, :video_cache, :dominant_arm, :pitching_form)
   end
 
   def set_post
