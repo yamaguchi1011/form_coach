@@ -1,3 +1,4 @@
+
 <tr id="comment-<%= comment.id %>">
   <td style="width: 60px">
     <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
@@ -19,10 +20,9 @@
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">
         </li>
-
-
         <li class="list-inline-item">
-            <%= button_to comment_path(comment), id: "button-delete-#{comment.id}", method: :delete ,form: {data: { turbo_confirm: '削除してもよろしいですか'}} do %>
+            <%= button_to comment_path(comment), id: "button-delete-#{comment.id}", method: :delete ,form: {data: { turbo_confirm: '削除してもよろしいですか', turbo_frame: 'top'}} do %>
+            
             <%= icon 'fas', 'trash' %>
             <% end %>
         </li>

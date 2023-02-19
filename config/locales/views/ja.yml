@@ -12,6 +12,8 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+      not_comment: "コメントを入力してください"
+      not_analysis: "分析及び投稿ができませんでした"
     post: '投稿'
     effective: '効果のあったアドバイス'
   users:

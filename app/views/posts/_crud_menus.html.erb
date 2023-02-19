@@ -5,9 +5,8 @@
     <% end %>
   </li>
   <li class="list-inline-item">
-    <%= button_to post_path(post), id: "button-delete-#{post.id}", method: :delete ,form: {data: { turbo_confirm: '削除してもよろしいですか'}} do %>
+    <%= button_to post_path(post), id: "button-delete-#{post.id}", method: :delete ,form: {data: { turbo_confirm: '削除してもよろしいですか', turbo_frame: '_top'}} do %>
       <%= icon 'fas', 'trash' %>
-      
     <% end %>
   </li>
 </ul>

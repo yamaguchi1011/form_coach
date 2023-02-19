@@ -18,43 +18,53 @@ class PostsController < ApplicationController
     # file_name = params[:post][:video]
     # File.absolute_pathで渡された動画のパスを絶対パスにしてvideo_pathに入れる。
     
-    video_path = File.absolute_path(@post.video.file.path)
-    dominant_arm = @post.dominant_arm
-    # session情報を削除する。
-    session.delete(:video)
-    # sessionにユーザーが渡した情報を入れる
-    session[:video] = @post
+ 
     
-
-    # sessionにparamsの動画の名前を入れる
-    # session[:video] = @post.video
-  
-    # session[:video]["video"]["url"] = @post.video.file.file
-    # session[:video]["image"] = @post.video.file.original_filename
-    # Open3.capture3でpythonのコードを実行する。video_pathで動画のURLを、dominant_armで利き腕を渡す。
-    @result = Open3.capture3("python form.py #{video_path} #{dominant_arm}")
-
     
-    # @resultに分析後の動画のURLが入っていたら確認画面に遷移する。
-    # 動画を最初に選んだ時で分析するをクリックしたときにtmpファイルに一時的に保存されて、
-    # 同じ場所に分析後の動画を上書きされている。正確には前の動画を消して、分析後の動画を同じURLで保存する。
+    if @post.body.present? && @post.video.present? && @post.dominant_arm.present?
+      video_path = File.absolute_path(@post.video.file.path)
+      dominant_arm = @post.dominant_arm
+      # session情報を削除する。
+      session.delete(:video)
+      # sessionにユーザーが渡した情報を入れる
+      session[:video] = @post
+      
+
+      # sessionにparamsの動画の名前を入れる
+      # session[:video] = @post.video
+    
+      # session[:video]["video"]["url"] = @post.video.file.file
+      # session[:video]["image"] = @post.video.file.original_filename
+      # Open3.capture3でpythonのコードを実行する。video_pathで動画のURLを、dominant_armで利き腕を渡す。
+      @result = Open3.capture3("python form.py #{video_path} #{dominant_arm}")
+
+      
+      # @resultに分析後の動画のURLが入っていたら確認画面に遷移する。
+      # 動画を最初に選んだ時で分析するをクリックしたときにtmpファイルに一時的に保存されて、
+      # 同じ場所に分析後の動画を上書きされている。正確には前の動画を消して、分析後の動画を同じURLで保存する。
 
 
-    #確認画面を経由せずに投稿はうまく行く ここから
-    if @post.save!
-      redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
+      #確認画面を経由せずに投稿はうまく行く ここから
+      if @post.save
+        redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
+      end
+      # 確認画面を経由せずに投稿はうまく行く ここまで
+
+      # 確認画面用
+      # if @result  
+        # ページ移動できるが、、、@postがnil
+        # redirect_to posts_confirm_path(post: @post), success: "分析成功しました"
+      #   # 実験
+        # redirect_to action: :confirm
+        # render :confirm
+      # end
+      # end
+    else
+
+      redirect_to new_post_path, danger: t('defaults.message.not_analysis', item: Comment.model_name.human)
     end
-    # 確認画面を経由せずに投稿はうまく行く ここまで
-
-    # 確認画面用
-    # if @result  
-      # ページ移動できるが、、、@postがnil
-      # redirect_to posts_confirm_path(post: @post), success: "分析成功しました"
-    #   # 実験
-      # redirect_to action: :confirm
-      # render :confirm
-    # end
-    # end
+   
+    
   end
 
   def confirm
@@ -95,7 +105,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
@@ -115,7 +124,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy!
-    redirect_to request.referer, success: t('defaults.message.deleted', item: Post.model_name.human)
+    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
   private
