@@ -51,7 +51,7 @@ gem 'font-awesome-sass', '~> 6.2.0'
 gem 'fog-aws'
 gem 'dotenv-rails'
 
-
+gem 'enum_help'
 # Use Sass to process CSS
 gem "sassc-rails"
 
