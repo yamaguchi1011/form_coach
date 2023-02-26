@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
 
   def show
     @posts = @user.posts.order("created_at DESC")
+    @user_effectives_count = @user.comment_effectives.size
   end
 
   private
