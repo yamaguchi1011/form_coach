@@ -4,6 +4,11 @@
   </td>
   <td>
     <h3 class="small"><%= comment.user.name %></h3>
+    <div class="text-center w-100">
+      <p class="small border border-primary rounded">高評価数</p>
+      <h5><%= @user_effectives_count %></h5>
+    </div>
+    
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body) %>
     </div>
