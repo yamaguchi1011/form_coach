@@ -1,14 +1,15 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: [:top, :new, :create, ]
-  def new; end
+  def new
+  end
 
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_back_or_to root_path, success: t('.success')
+      redirect_to posts_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
