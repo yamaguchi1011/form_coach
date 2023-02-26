@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+  <%= turbo_stream.append("alerts") do %>
+    <%= render "layouts/alert", type: :info, message: flash[:notice] %>
+  <% end %>
+<% end %>
+
+<% if flash[:alert] %>
+  <%= turbo_stream.append("alerts") do %>
+    <%= render "application/alert", type: :warning, message: flash[:alert] %>
+  <% end %>
+<% end %>
