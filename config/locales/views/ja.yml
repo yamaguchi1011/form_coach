@@ -4,6 +4,7 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     edit: '編集'
+    password_reset: 'パスワードリセット'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -59,3 +60,14 @@ ja:
       no_result: 'まだ投稿していません'
     edit:
       title: 'プロフィール編集'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
