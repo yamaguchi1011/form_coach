@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :effectives, dependent: :destroy
   # @user.effective_commentsのような形でいいねしているcommentのCollectionを取得できる。
   has_many :effective_comments, through: :effectives, source: :comment
+  # @user.comment_effctivesであれば、いいねされているコメントのコレクションを取得できる.effectiveを受けているコメントの数を取得できる。
+  has_many :comment_effectives, through: :comments, source: :effective
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

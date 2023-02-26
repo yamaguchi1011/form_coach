@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment
+    @user
   end
 
 
