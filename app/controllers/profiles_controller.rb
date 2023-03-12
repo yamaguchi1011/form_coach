@@ -1,12 +1,14 @@
 
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[edit update show]
+  before_action :user_effectives_count, only: %i[edit update show]
   
-  def edit; end
+  def edit;end
 
   def update
     if @user.update(user_params)
-      redirect_to profile_path, success: t('defaults.message.updated', item: User.model_name.human)
+      # redirect_to profile_path, success: t('defaults.message.updated', item: User.model_name.human)
+      flash.now['success']= t('defaults.message.updated', item: User.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
       render :edit
@@ -15,13 +17,16 @@ class ProfilesController < ApplicationController
 
   def show
     @posts = @user.posts.order("created_at DESC")
-    @user_effectives_count = @user.comment_effectives.size
   end
 
   private
 
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def user_effectives_count
+    @user_effectives_count = @user.comment_effectives.size
   end
 
   def user_params

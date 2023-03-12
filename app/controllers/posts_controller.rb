@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   require "open3"
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
     # @posts = Post.all.includes([:user, :comments]).order(created_at: :desc)
     # @comments = Comment.includes(:post)
   end
@@ -102,9 +102,14 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc).page(params[:page])
+  end
 
-    
+  # turboで投稿詳細画面を画面遷移なく表示するためにdetailアクションを作成
+  def detail
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def edit

@@ -1,9 +1,6 @@
 
-<% if current_user.effective?(comment) %>
-<%# 非同期処理のためid追加 %>
-  <div id="effective_form">
-  <%= render 'comments/uneffective', { comment: comment } %>
-<% else %>
-  <%= render 'comments/effective', { comment: comment } %>
-</div>
-<% end %>
+  <% if current_user.effective?(comment) %>
+    <%= render 'comments/uneffective', { comment: comment } %>
+  <% else %>
+    <%= render 'comments/effective', { comment: comment } %>
+  <% end %>
