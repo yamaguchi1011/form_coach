@@ -1,11 +1,15 @@
 ja:
   defaults:
-    login: 'ログイン'
+    login: 'ログインする'
     register: '登録'
+    register_page: '登録する'
     logout: 'ログアウト'
     edit: '編集'
+    edit_profile: 'プロフィール編集'
     password_reset: 'パスワードリセット'
     search_word: '検索ワード'
+    detail: '詳細'
+    back: '戻る'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -17,6 +21,7 @@ ja:
       not_comment: "コメントを入力してください"
       not_analysis: "分析及び投稿ができませんでした"
     post: '投稿'
+    posts: '投稿数'
     effective: '効果のあったアドバイス'
   users:
     new:
@@ -37,10 +42,10 @@ ja:
       success: 'ログアウトしました'
   posts:
     index:
-      title: '投稿一覧'
+      title: 'みんなの投稿一覧'
       no_result: '投稿がありません'
     new:
-      title: '分析投稿作成'
+      title: '分析して投稿する'
     show:
       title: '投稿詳細'
     edit:

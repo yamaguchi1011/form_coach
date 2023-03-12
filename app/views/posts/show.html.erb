@@ -1,34 +1,37 @@
-<% content_for(:title, t('.title')) %>
-<div class="container pt-5">
-  <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
-      <!-- 掲示板内容 -->
-      <article class="card">
-        <div class="card-body">
-          <div class='row'>
-            <div class='col-md-3'>
-               <%= video_tag @post.video_url, autoplay: true, muted: true, class: 'card-img-top',size: '300x200', controls: true unless @post.video.blank?%>
-            </div>
-            <div class='col-md-9'>
-              <h3 class="d-inline"><%= @post.body %></h3>
-              <%= render 'crud_menus', post: @post if current_user.own?(@post)%>
+<%= turbo_frame_tag "post" do %>
+  <% content_for(:title, t('.title')) %>
+  <div class="container pt-5 border-top border-bottom">
+    <div class="row mb-3">
+      <div class="col-lg-8">
+        <!-- 掲示板内容 -->
+        <article class="card">
+          <div class="card-body">
+              <div class='col-12'>
               <ul class="list-inline">
-                <li class="list-inline-item">by <%= @post.user.name %></li>
-                <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
-              </ul>
-            </div>
+                  <li class="list-inline-item"><%= @post.user.name %></li>
+                  <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
+                  <%= link_to t('defaults.back'), "post" , class: "btn btn-sm btn-outline-secondary" %>
+                </ul>
+                <p class="card-text"><%= @post.body %></p>
+                <%= render 'crud_menus', post: @post if current_user.own?(@post)%>
+              </div>
+              <div class="col-md-12">
+                <%= video_tag @post.video_url, autoplay: true, muted: true, class: 'card-img-bottom ratio', controls: true ,style:"--aspect-ratio: 50%;"unless @post.video.blank?%>
+              </div>
+              
           </div>
-          <p><%= simple_format(@post.body) %></p>
+        </article>
+      </div>
+      <div class="col-lg-4">
+      <!-- コメントフォーム -->
+        <%= render 'comments/form', { post: @post, comment: @comment } %>
+        <!-- コメントエリア -->
+        <div class= "col-12 ", style="width300px;height:500px;overflow:auto">
+          <%= turbo_frame_tag "comments" do%>
+            <%= render 'comments/comments', { comments: @comments }%>
+          <% end %>
         </div>
-      </article>
+      </div>
     </div>
   </div>
-
-    <!-- コメントフォーム -->
-    <%= render 'comments/form', { post: @post, comment: @comment } %>
-    <!-- コメントエリア -->
-  <%= turbo_frame_tag "comments" do%>
-    <%= render 'comments/comments', { comments: @comments }%>
-  <% end %>
-</div>
+<% end %>

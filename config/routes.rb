@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'password_resets/update'
   root 'static_pages#top'
-
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
@@ -12,6 +11,8 @@ Rails.application.routes.draw do
   post 'posts_analysis', to: 'posts#analysis'
   # get 'posts_confirm', to: 'posts#confirm'
   get 'posts/confirm'
+  # turboで投稿詳細画面を表示するためにdetailアクションを追加して、ルーティングも追加
+  # get '/posts/detail/:id', to: 'posts#detail' 
   resources :users, only: %i[new create]
 
   resources :posts do

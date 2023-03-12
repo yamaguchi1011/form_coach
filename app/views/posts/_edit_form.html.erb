@@ -1,14 +1,25 @@
-<%= form_with  model: post, url: {controller: 'posts', action: 'update'} do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
-  <div class="form-group">
-    <%#= f.label :body %>
-    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+<%= turbo_frame_tag post do %>
+  <div class="col-12 mb-3">
+    <div id="post-id-<%= post.id %>">
+      <div class="card border-start-0 border-end-0 border-bottom-0 rounded-0">
+        <div class="card-body">
+          <div class="col-12">
+              <%= form_with  model: post, url: {controller: 'posts', action: 'update'} do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+              <div class="form-group">
+                <%= f.text_area :body, class: 'form-control col-12',rows: 10 %>
+              </div>
+              <%= f.submit "更新する" ,class: 'btn btn-primary'%>
+              <%= link_to t('defaults.back'), post, class: "btn btn-sm btn-outline-secondary" %>
+            <% end %>
+         
+          </div>
+        </div>
+        <div class="col-md-12">
+          <%= video_tag post.video_url, autoplay: true, muted: true, class: 'card-img-bottom', controls: true unless post.video.blank? %>
+        </div>
+        
+      </div>
+    </div>
   </div>
-  <div class='mt-3 mb-3'>
-    <%= video_tag post.video.url, id:'preview', size: '300x200', autoplay: true, muted: true, controls: true unless post.video.blank?%>
-  </div>
-
-  <%= f.submit "更新する" ,class: 'btn btn-primary'%>
- 
- 
 <% end %>

@@ -1,13 +1,9 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div id="post-id-<%= post.id %>">
-    <div class="card">
-      <%= video_tag post.video_url, autoplay: true, muted: true, class: 'card-img-top',size: '300x200', controls: true unless post.video.blank? %>
-      <div class="card-body">
-        <h4 class="card-title">
-          <%= link_to post.body, post_path(post) %>
-        </h4>
-          <%= render 'posts/crud_menus', post: post if current_user.own?(post)%>
-          <ul class="list-inline">
+<%= turbo_frame_tag "post" do %>
+  <div class="col-12 mb-3">
+    <div id="post-id-<%= post.id %>">
+      <div class="card border-start-0 border-end-0 border-bottom-0 rounded-0">
+        <div class="card-body d-flex flex-row">
+          <div class="list-inline">
             <li class="list-inline-item">
               <%= icon 'far', 'user' %>
               <%= post.user.name %>
@@ -16,10 +12,19 @@
               <%= icon 'far', 'calendar' %>
               <%= l post.created_at, format: :long %>
             </li>
-          </ul>
-          <p class="card-text"><%= post.body %></p>
-          
+            <%= link_to t('defaults.detail'),post_path(post) , class: "btn btn-sm btn-outline-secondary"%>
+            <%#postをturboで実装しようとした  %>
+            <%#= link_to t('defaults.detail'),"/posts/detail/#{(post.id)}" , class: "btn btn-sm btn-outline-secondary"%>
+          </div>
+          <%= render 'posts/crud_menus', post: post if current_user.own?(post)%>
+        </div>
+        <div class="card-body d-flex flex-row">
+          <p class="card-text"><%= truncate(post.body,length: 30)%></p>
+        </div>
+        <div class="col-md-9">
+          <%= video_tag post.video_url, autoplay: true, muted: true, class: 'card-img-bottom', controls: true unless post.video.blank? %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
