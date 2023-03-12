@@ -1,5 +1,19 @@
+$primary:       #DC143C;
+$secondary:     #6c757d;
+$success:       #047a20;
+$info:          #0dcaf0;
+$warning:       #ffc107;
+$danger:        #dc3545;
+$light:         #f8f9fa;
+$dark:          #000000;
 
-/* Dropdown menu */
-.dropdown-menu.active {
-  display: block;
-}
+//角丸の設定 true=有効 false=無効
+$enable-rounded:              true;
+
+//角丸の大きさの設定
+$border-radius:               .25rem;
+$border-radius-sm:            .2rem;
+$border-radius-lg:            .3rem;
+$border-radius-pill:          50rem;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
