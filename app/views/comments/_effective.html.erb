@@ -1,4 +1,7 @@
+<%= turbo_frame_tag "effective_button" do %>
 <%= button_to effectives_path(comment_id: comment.id),id: "js-effective-button-for-comment-#{comment.id}", class:"float-right",method: :post,remote: true do %>
-<%= icon 'far', 'star' %>
+  <%= icon 'far', 'star' %>
 <% end %>
+<% end %>
+
 

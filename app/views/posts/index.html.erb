@@ -1,18 +1,17 @@
 <% content_for(:title, t('.title')) %>
 <div class="container pt-3">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-1">
-      <!-- 検索フォーム -->
-        <%= render 'search_form', url: posts_path %>
-    </div>
-  </div>
-
   <!-- 投稿一覧 -->
   <div class="row">
     <div class="col-12">
       <div class="row">
         <% if @posts.present? %>
-          <%= render @posts %>
+          <%# 無限スクロール %>
+          <div id="posts">
+            <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
+              <%= render @posts %>
+              <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
+            <% end %>  
+          </div>
         <% else %>
           <p><%= t('.no_result') %></p>
         <% end %>
