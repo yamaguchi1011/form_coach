@@ -16,7 +16,9 @@ class CommentsController < ApplicationController
     # # @comments = Comment.all.includes([:user, :effective]).order(created_at: :desc)
     @post = Post.find(params[:post_id])
     if @comment.save
+      # flash.now.notice= t('defaults.message.updated', item: User.model_name.human)
       redirect_to post_path(@comment.post)
+      flash.now.notice= t('defaults.message.updated', item: User.model_name.human)
       # turboでcreate.turbo_stream.erbを呼び出してコメント投稿は非同期で実装できたが、コメント記述欄のリセットができないので保留
       # render :create
     else
