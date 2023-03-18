@@ -10,15 +10,15 @@
               <ul class="list-inline">
                   <li class="list-inline-item"><%= @post.user.name %></li>
                   <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
-                  <%= link_to t('defaults.back'), "post" , class: "btn btn-sm btn-outline-secondary" %>
+                  <%# 詳細表示から戻るボタン。エラーが出る %>
+                  <%#= link_to t('defaults.back'), "post" , class: "btn btn-sm btn-outline-secondary" %>
                 </ul>
                 <p class="card-text"><%= @post.body %></p>
                 <%= render 'crud_menus', post: @post if current_user.own?(@post)%>
               </div>
               <div class="col-md-12">
-                <%= video_tag @post.video_url, autoplay: true, muted: true, class: 'card-img-bottom ratio', controls: true ,style:"--aspect-ratio: 50%;"unless @post.video.blank?%>
+                <%= video_tag @post.video_url,autoplay: true, muted: true, class: 'card-img-bottom ratio', controls: true ,style:"--aspect-ratio: 50%;"unless @post.video.blank?%>
               </div>
-              
           </div>
         </article>
       </div>
