@@ -57,8 +57,8 @@ class PostsController < ApplicationController
       # end
       # end
     else
-
-      redirect_to new_post_path, danger: t('defaults.message.not_analysis', item: Comment.model_name.human)
+      flash.now.alert = t('defaults.message.not_created', item: Post.model_name.human)
+      render :new, status: :unprocessable_entity
     end
    
     
@@ -89,11 +89,14 @@ class PostsController < ApplicationController
       
     @post = Post.new(post_params)
       
-    if @post.save!
+    if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
-    # else
-    #   flash.now['danger'] = t('defaults.message.not_created', item: Post.model_name.human)
-    #   # render :new
+    else
+      
+      
+      
+      flash.now.alert = t('defaults.message.not_created', item: Post.model_name.human)
+      render :new, status: :unprocessable_entity
     #   # いったんconfirmに遷移
     #   render posts_confirm_path
     end
