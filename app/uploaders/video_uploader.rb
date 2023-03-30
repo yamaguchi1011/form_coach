@@ -11,4 +11,8 @@ class VideoUploader < CarrierWave::Uploader::Base
   def extension_allowlist
     %w(jpg jpeg gif png MOV wmv mp4)
   end
+
+  def size_range
+    0..30.megabytes
+  end
 end
