@@ -36,6 +36,14 @@ gem 'rails-i18n'
 
 gem 'carrierwave'
 
+# Rails 5.2 and Rails 6
+gem 'active_storage_validations'
+
+# Optional, to use :dimension validator or :aspect_ratio validator
+gem 'mini_magick', '>= 4.9.5'
+# Or
+gem 'ruby-vips', '>= 2.1.0'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
