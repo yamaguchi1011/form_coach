@@ -12,15 +12,10 @@
     <div class="col-auto">
       <%= link_to t('posts.new.title'), new_post_path, class: 'btn btn-primary' %>
     </div>
-    <div class="col-auto">
-      <nav class="navbar navbar-expand-lg navigation">
-        <%# 画面小さくなったとき用のメニューアイコン %>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <%# 画面小さくなったとき用のメニューアイコン ここまで %>
-
-        <div class="collapse navbar-collapse col-sm-4 col-md-2" id="navbarSupportedContent">
+    <div class="col-md-auto">
+      <nav class="navbar navbar-expand-sm navigation">
+      
+        <div class="navbar-collapse col-sm-4 col-md-2" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto main-nav align-items-center">
 
             <li class="nav-item dropdown dropdown-slide">
