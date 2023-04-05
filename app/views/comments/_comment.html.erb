@@ -1,19 +1,19 @@
 
-<tr id="comment-<%= comment.id %>">
-  <td style="width: 60px">
-    <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
-  </td>
-  <td>
-    <h3 class="small"><%= comment.user.name %></h3>
-    <div class="text-center w-100">
-      <p class="small border border-primary rounded">高評価数</p>
-      <h5><%= @user_effectives_count %></h5>
+<tr class= "d-flex flex-column",id="comment-<%= comment.id %>">
+  <td class= "d-flex flex-row border-bottom-0">
+    <div class="my-box flex-fill"><%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %></div>
+    <div class="my-box flex-fill"><h3 class="small"><%= comment.user.name %></h3></div>
+    <div class="my-box flex-fill">
+      <div class="text-center">
+        <p class="small border border-primary rounded">高評価数</p>
+        <h5><%= @user_effectives_count %></h5>
+      </div>
     </div>
-    
+  </td>
+  <td class="border-bottom-0">
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body, class:"text-break", style:"width: 100%;")%>
     </div>
-    
   </td>
 <%# 自分のコメントであれば編集削除機能が表示される %>
   <% if current_user.own?(comment) %>
