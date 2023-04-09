@@ -86,8 +86,11 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: Post.model_name.human)
-      render :edit
+      # 通常の処理
+      # flash.now['danger'] = t('defaults.message.not_updated', item: Post.model_name.human)
+      # render :edit
+      # turboでpost編集エラー時
+      render :edit, status: :unprocessable_entity
     end
   end
 
