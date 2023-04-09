@@ -91,8 +91,9 @@ group :development do
   gem 'pry-byebug'
 end
 
- gem 'sorcery'
+
 
 group :production do
   gem 'mysql2'
+  gem 'unicorn'
 end
