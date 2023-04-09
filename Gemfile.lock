@@ -387,7 +387,6 @@ DEPENDENCIES
   rails-i18n
   ransack
   redis (~> 4.0)
-  ruby-vips (>= 2.1.0)
   sassc-rails
   sorcery
   sprockets-rails
