@@ -1,4 +1,6 @@
-<%= turbo_frame_tag post do %>
+<%# turboでpost編集機能 %>
+
+<%= turbo_frame_tag "post_edit" do %>
   <div class="col-12 mb-3">
     <div id="post-id-<%= post.id %>">
       <div class="card border-start-0 border-end-0 border-bottom-0 rounded-0">
