@@ -41,7 +41,7 @@ gem 'active_storage_validations'
 # Optional, to use :dimension validator or :aspect_ratio validator
 gem 'mini_magick', '>= 4.9.5'
 # Or
-gem 'ruby-vips', '>= 2.1.0'
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -68,6 +68,7 @@ gem 'config'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2
 gem 'ransack'
+gem 'sorcery'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
