@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: form_coach_production
-  username: form_coach
+  username: root
   password: <%= ENV["FORM_COACH_DATABASE_PASSWORD"] %>
+  socket: /var/lib/mysql/mysql.sock
