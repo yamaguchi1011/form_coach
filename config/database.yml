@@ -85,5 +85,5 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: form_coach_production
   username: root
-  password: <%= ENV["FORM_COACH_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   socket: /var/lib/mysql/mysql.sock
