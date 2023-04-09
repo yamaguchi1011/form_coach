@@ -3,6 +3,8 @@
   <div class="container pt-5 border-top border-bottom">
     <div class="row mb-3">
       <div class="col-lg-8">
+      <%# turboでpost編集機能 %>
+      <%= turbo_frame_tag "post_edit" do%>
         <!-- 掲示板内容 -->
         <article class="card">
           <div class="card-body">
@@ -21,6 +23,7 @@
               </div>
           </div>
         </article>
+        <% end %>
       </div>
       <div class="col-lg-4">
       <!-- コメントフォーム -->
