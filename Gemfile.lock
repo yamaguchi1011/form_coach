@@ -379,7 +379,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations
-  aws-sdk-s3 (= 1.114.0)
+  aws-sdk-s3
   bootsnap
   bootstrap
   carrierwave
