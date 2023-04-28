@@ -98,4 +98,5 @@ end
 group :production do
   gem 'mysql2'
   gem 'unicorn'
+  gem "aws-sdk-s3"
 end
