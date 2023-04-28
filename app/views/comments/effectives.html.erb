@@ -1,0 +1,30 @@
+<% content_for(:title, t('.title')) %>
+<%# このアドバイスは効果あったなーと、練習していく中で何度も振り返ることができるように自分が投稿をした一覧を取ってくる %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム -->
+      <form>
+        <div class="input-group mb-3">
+          <input class="form-control" placeholder="検索ワード" type="search" />
+          <div class="input-group-append">
+            <input type="submit" value="検索" class="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 効果のあったアドバイス一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="container pt-5">
+        <% if @effective_comments.present? %>
+          <%= render @effective_comments %>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

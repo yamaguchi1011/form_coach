@@ -1,0 +1,18 @@
+<% content_for(:title, t('.title')) %>
+<div class="d-flex align-items-center col-md-12 vh-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h1><%= t('.title') %></h1>
+        <%= form_with url: password_resets_path, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :email, t(User.human_attribute_name(:email)) %><br />
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="text-center"><%= f.submit t('password_resets.new.submit'), class: 'btn btn-primary rounded-pill m-3 col-6' %>
+          </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

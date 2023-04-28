@@ -1,0 +1,9 @@
+<%= search_form_for @q, url: url do |f| %>
+  <div class="input-group" >
+    <%= f.select :dominant_arm_eq,[["右投げ","右"],["左投げ","左投げ"]], {include_blank: "選択してください"},{class:'text-light bg-dark p-2 rounded-pill'}%>
+    <%= f.select :pitching_form_eq, [["オーバースロー",0],["スリークォーター",1],["サイドスロー",2],["アンダースロー",3]],{include_blank: "選択してください"},{class:'text-light bg-dark p-2 rounded-pill'}%>
+    <div class="input-group-append">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

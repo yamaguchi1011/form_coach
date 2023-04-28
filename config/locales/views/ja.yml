@@ -1,0 +1,79 @@
+ja:
+  defaults:
+    login: 'ログインする'
+    register: '登録'
+    register_page: '登録する'
+    logout: 'ログアウト'
+    edit: '編集'
+    edit_profile: 'プロフィール編集'
+    password_reset: 'パスワードリセット'
+    search_word: '検索ワード'
+    detail: '詳細'
+    back: '戻る'
+    message:
+      require_login: 'ログインしてください'
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
+      not_comment: "コメントを入力してください"
+      not_analysis: "分析及び投稿ができませんでした"
+    post: '投稿'
+    posts: '投稿数'
+    effective: '効果のあったアドバイス'
+  users:
+    new:
+      title: 'ユーザー登録'
+      to_login_page: 'ログインページへ'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録が失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: '登録ページへ'
+      password_forget: 'パスワードをお忘れの方はこちら'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  posts:
+    index:
+      title: 'みんなの投稿一覧'
+      no_result: '投稿がありません'
+    new:
+      title: '分析して投稿する'
+    show:
+      title: '投稿詳細'
+    edit:
+      title: '投稿編集'
+  comments:
+    effective:
+      title: '効果のあったアドバイス一覧'
+    effectives:
+      no_result: '効果のあったアドバイスがありません'
+  effectives:
+    create:
+      success: 'アドバイスの効果がありました'
+    destroy:
+      success: 'アドバイスの効果がありませんでした'
+  profiles:
+    show:
+      title: 'プロフィール'
+      no_result: 'まだ投稿していません'
+    edit:
+      title: 'プロフィール編集'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'

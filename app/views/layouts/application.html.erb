@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application" ,'data-turbolinks-track': 'reload'%>
+    <%= javascript_importmap_tags %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag "application" ,'data-turbolinks-track': 'reload'%>
+  </head>
+
+  <body>
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+      <div id="flash">
+        <%= render 'shared/flash' %>
+      </div>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    <% else %>
+      <div id="flash">
+        <%= render 'shared/flash' %>
+      </div>
+      <%= yield %>
+      <%#= render 'shared/before_login_header' %>
+    <% end %>
+    
+  </body>
+</html>

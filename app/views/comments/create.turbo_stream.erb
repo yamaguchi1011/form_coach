@@ -1,0 +1,12 @@
+<%= turbo_stream_flash %>
+<%= turbo_stream.prepend 'comments' do %>
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <table class="table">
+        <%= render @comment %>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+

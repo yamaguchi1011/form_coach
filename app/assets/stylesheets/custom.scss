@@ -1,0 +1,26 @@
+$primary:       #DC143C;
+$secondary:     #6c757d;
+$success:       #047a20;
+$info:          #0dcaf0;
+$warning:       #ffc107;
+$danger:        #dc3545;
+$light:         #f8f9fa;
+$dark:          #000000;
+
+//角丸の設定 true=有効 false=無効
+$enable-rounded:              true;
+
+//角丸の大きさの設定
+$border-radius:               .25rem;
+$border-radius-sm:            .2rem;
+$border-radius-lg:            .3rem;
+$border-radius-pill:          50rem;
+
+// 動画の表示サイズを指定。
+video{
+  width:100%;
+  max-height: 400px;
+}       
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";

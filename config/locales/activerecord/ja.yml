@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      post: '投稿'
+      comment: 'コメント'
+      effective: '効果のあったアドバイス'
+    attributes:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        name: 'ユーザー名'  
+        avatar: 'プロフィール画像'
+      post:
+        body: '本文'  
+      comment:
+        body: 'コメント'
+  enums:
+    post:
+      pitching_form:
+        over: 'オーバースロー'
+        three_quarters: 'スリークォーター'
+        side: 'サイドスロー'
+        under: 'アンダースロー'

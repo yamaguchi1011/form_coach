@@ -1,0 +1,47 @@
+
+<tr class= "d-flex flex-column",id="comment-<%= comment.id %>">
+  <td class= "d-flex flex-row border-bottom-0">
+    <div class="my-box flex-fill"><%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %></div>
+    <div class="my-box flex-fill"><h3 class="small"><%= comment.user.name %></h3></div>
+    <div class="my-box flex-fill">
+      <div class="text-center">
+        <p class="small border border-primary rounded">高評価数</p>
+        <h5><%= @user_effectives_count %></h5>
+      </div>
+    </div>
+  </td>
+  <td class="border-bottom-0">
+    <div id="js-comment-<%= comment.id %>">
+      <%= simple_format(comment.body, class:"text-break", style:"width: 100%;")%>
+    </div>
+  </td>
+<%# 自分のコメントであれば編集削除機能が表示される %>
+  <% if current_user.own?(comment) %>
+    <td class="action">
+      <ul class="list-inline justify-content-center" style="float: right;">
+        <li class="list-inline-item">
+        </li>
+        <li class="list-inline-item">
+            <%= button_to comment_path(comment), id: "button-delete-#{comment.id}", method: :delete ,form: {data: { turbo_confirm: '削除してもよろしいですか', turbo_frame: 'top'}} do %>
+            <%= icon 'fas', 'trash' %>
+            <% end %>
+        </li>
+      </ul>
+    </td>
+<%# 自分のコメントではなく、自分の投稿であれば効果あったよボタンを追加する。 %>
+  <%elsif current_user.own?(@post)%>
+    <td class="action">
+        <ul class="list-inline justify-content-center" style="float: right;">
+          <li class="list-inline-item">
+          <%= turbo_frame_tag "effective" do%>
+            <%= render 'comments/effective_button', comment: comment %>
+          <% end %>
+          </li>
+        </ul>
+    </td>
+<%# 自分のコメントではなく、自分の投稿でもなければ何も表示しない。%>
+  <%else%>
+    <td class="action">
+    </td>
+  <% end %>
+</tr>

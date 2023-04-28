@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+     <div class="col-lg-8 offset-lg-2">
+       <h1><%= t('.title') %></h1>
+       <%= form_with  model: post, url: {controller: 'posts', action: 'analysis'} do |f| %>
+          <div class="form-group">
+            <%= f.file_field :video, :accept => 'video/*' %>
+            <%= f.hidden_field :video_cache %>
+          </div>
+          <%= f.submit "分析する" ,class: 'btn btn-primary' %>
+        <% end %>
+     </div>
+  </div>
+</div>

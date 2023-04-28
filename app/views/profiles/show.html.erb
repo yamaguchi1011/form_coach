@@ -1,0 +1,18 @@
+  <% content_for(:title, t('.title')) %>
+  <div class="container pt-3">
+    <%# turboでコントロールするために切り分け %>
+    <%= render partial: "profiles/profile" %>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-12">
+        <% if @user.posts.any? %>
+          <div class="posts">
+            <div class="col-12"><h3><%= t('defaults.posts')%> (<%= @user.posts.count %>)</h3></div>
+            <%= render @posts %>
+          </div>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "effective_button" do %>
+  <%= button_to effective_path(current_user.effectives.find_by(comment_id: comment.id)),id: "js-effective-button-for-comment-#{comment.id}",class:"float-right",method: :delete,remote: true do %>
+    <%= icon 'fas', 'star' %>
+  <% end %>
+<% end %>
+

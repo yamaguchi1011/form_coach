@@ -1,0 +1,38 @@
+<header class="container">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-auto">
+      <%= link_to posts_path, class: 'navbar-brand' do %>
+        <h1>FormCoach</h1>
+      <% end %>
+    </div>
+    <!-- 検索フォーム -->
+    <div class="col-auto">
+      <%= render 'posts/search_form', url: posts_path  %>
+    </div>
+    <div class="col-auto">
+      <%= link_to t('posts.new.title'), new_post_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="col-md-auto">
+      <nav class="navbar navbar-expand-sm navigation">
+      
+        <div class="navbar-collapse col-sm-4 col-md-2" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto main-nav align-items-center">
+
+            <li class="nav-item dropdown dropdown-slide">
+              <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
+                <%= image_tag current_user.avatar_url, size: '40x40', class: 'rounded-circle mr15'%>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-item disabled"><%= current_user.name %></div>
+                <div class="dropdown-divider"></div>
+                <%= link_to t('posts.index.title'), posts_path, class: 'dropdown-item' %>
+                <%= link_to (t 'profiles.show.title'), profile_path, class: 'dropdown-item' %>
+                <%= button_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

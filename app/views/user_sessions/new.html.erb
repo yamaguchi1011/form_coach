@@ -1,0 +1,27 @@
+<% content_for(:title, t('.title')) %>
+<div class="d-flex align-items-center col-md-12 vh-100">
+  <div class="container">
+    <div class="row">
+      <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h1 class="my-5 text-center">FormCoach</h1>
+        <%= form_with model: @user, url: login_path, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :email, User.human_attribute_name(:email) %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, User.human_attribute_name(:password) %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="actions text-center">
+            <%= f.submit (t 'defaults.login'), class: 'btn btn-outline-dark rounded-pill m-3 col-6' %>
+          </div>
+        <% end %>
+        <div class='text-center'>
+          <%= link_to (t '.to_register_page'), new_user_path %>
+          <%= link_to (t '.password_forget'), new_password_reset_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
