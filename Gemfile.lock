@@ -269,6 +269,7 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    open3 (0.1.1)
     pg (1.2.3)
     popper_js (2.11.6)
     pry (0.14.2)
@@ -396,6 +397,7 @@ DEPENDENCIES
   letter_opener_web
   mini_magick (>= 4.9.5)
   mysql2
+  open3
   pg (= 1.2.3)
   pry-byebug
   puma (~> 5.0)
