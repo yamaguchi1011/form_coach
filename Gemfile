@@ -98,6 +98,11 @@ end
 group :production do
   gem 'mysql2'
   gem 'unicorn'
-  gem "aws-sdk-s3"
   gem 'open3'
+  gem 'aws-sdk-s3'
+  gem 'fog-aws'
+  gem 'dotenv-rails'
 end
+
+
+gem "webrick", "~> 1.8"

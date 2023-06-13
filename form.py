@@ -1,13 +1,12 @@
-
+# -*- coding: utf-8 -*-
 # 初期設定
 # csvで出力したければ使用する（出力方法は別で調べる）
 import csv
-
+import subprocess
 # from tkinter import font
 # from turtle import right
 import mediapipe as mp
 import numpy as np
-import subprocess
 import os
 import shutil
 import cv2
@@ -15,7 +14,6 @@ import glob
 
 import sys
 from decimal import *
-
 mp_pose = mp.solutions.pose
 
 # Initialize MediaPipe pose.
@@ -32,16 +30,14 @@ drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
 video_path = sys.argv[1]
 dominant_arm = sys.argv[2]
-print(dominant_arm)
 
-print(video_path)
 # 絶対パス　/Users/yamaguchitakashi/form_coach/video/test2.mp4
 # video2images
 
 
 # 既にimagesフォルダーがあれば削除
 if os.path.isdir('images'):
-    shutil.rmtree('images')
+   shutil.rmtree('images')
 
 os.makedirs('images', exist_ok=True)
  
@@ -65,12 +61,7 @@ def video_2_images(video_file= video_path,
            cv2.imwrite(image_dir+image_file % str(int(i/interval)).zfill(6), frame)
         i += 1 
     cap.release()  
- 
-def main():
-    video_2_images()
-    
-if __name__ == '__main__':
-    main()
+video_2_images() 
 
 # # MediaPipeで静止画を処理
 
@@ -344,10 +335,7 @@ if os.path.exists(video_path):
     os.remove(video_path)
 
 
-subprocess.call('ffmpeg -r 10 -i images/%06d.png -vcodec libx264 -pix_fmt yuv420p {path}'.format(path=video_path), shell=True)
-
-
-
+subprocess.call('ffmpeg-6.0-amd64-static/ffmpeg -r 10 -i images/%06d.png -vcodec libx264 -pix_fmt yuv420p {path}'.format(path=video_path), shell=True)
 
 
 # def fields_name():
