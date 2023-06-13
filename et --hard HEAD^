@@ -1,0 +1,978 @@
+[33mcommit 9220f1054d31d82892cb3a56cd0b127fd38d0c64[m[33m ([m[1;36mHEAD -> [m[1;32mpush_from_ec2[m[33m, [m[1;31morigin/push_from_ec2[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-136-19.ap-northeast-1.compute.internal>
+Date:   Tue Jun 13 10:02:46 2023 +0000
+
+    upload_from_ec2_produvtion
+
+[33mcommit 0358ba7779088a67656d1467a1c6ad66486114c8[m
+Author: EC2 Default User <ec2-user@ip-172-31-136-19.ap-northeast-1.compute.internal>
+Date:   Tue Jun 13 08:53:41 2023 +0000
+
+    upload_from_ec2
+
+[33mcommit b3752f19d8f82f63078ca23042c1c886561de9fa[m
+Merge: b6e3d4c 2566bee
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Mon May 8 16:03:24 2023 +0900
+
+    Merge pull request #105 from yamaguchi1011/Fix_production1
+    
+    add_open3_requirements.txt
+
+[33mcommit 2566beeacbc33c931db9ef12a1c8348c5e508403[m[33m ([m[1;31morigin/Fix_production1[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon May 8 15:59:59 2023 +0900
+
+    add_open3_requirements.txt
+
+[33mcommit b6e3d4cc87a3795b47c730782d588bb595b3ad4c[m
+Merge: 46988b5 65ef633
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Apr 28 15:45:31 2023 +0900
+
+    Merge pull request #104 from yamaguchi1011/Fix_carrierwave_S3
+    
+    本番環境で画像が保存できるか確認
+
+[33mcommit 46988b5380939ffcef093fb1ae7e2ca1f6d52264[m
+Merge: 44d3887 16aaa6b
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Apr 28 15:43:41 2023 +0900
+
+    Merge pull request #102 from yamaguchi1011/readme_er_01
+    
+    ER図を追加
+
+[33mcommit 16aaa6bff6df895e95c76d5296f69f6e47f5c41d[m[33m ([m[1;31morigin/readme_er_01[m[33m)[m
+Merge: fdc6517 44d3887
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Apr 28 15:43:34 2023 +0900
+
+    Merge branch 'main' into readme_er_01
+
+[33mcommit 44d388725fb9a63ec501ebe9e4da4d4149ca9990[m
+Merge: 2290ee7 98a516b
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Apr 28 15:42:04 2023 +0900
+
+    Merge pull request #101 from yamaguchi1011/Fix_store_to_s3
+    
+    Fix store to s3
+
+[33mcommit 2290ee75ad8ece2f730c17d1deffd3a235570c27[m
+Merge: 773ce8e 8fbf94b
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Apr 28 15:41:28 2023 +0900
+
+    Merge pull request #100 from yamaguchi1011/Fix_carrierwave_fog_public
+    
+    Fix carrierwave fog public
+
+[33mcommit 773ce8eea5413e85fcafd849fb954f899a48e3d2[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Apr 28 15:32:42 2023 +0900
+
+    .env to .gitignore
+
+[33mcommit 65ef6339adf29d5303870d11bb965e2250969e1c[m[33m ([m[1;31morigin/Fix_carrierwave_S3[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Apr 27 07:33:50 2023 +0900
+
+    本番環境で画像が保存できるか確認
+
+[33mcommit ea96d9e6f2429b7e7089db7e21fc9fd3f537eef6[m
+Merge: b07a3fa ee92b26
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Apr 27 07:29:15 2023 +0900
+
+    Merge pull request #98 from yamaguchi1011/Fix_carrierwave_S3
+    
+    本番環境で画像が保存できるか確認
+
+[33mcommit ee92b26af6204e2375473d6be7d630cb0c1cde61[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Apr 27 07:28:38 2023 +0900
+
+    本番環境で画像が保存できるか確認
+
+[33mcommit 98a516b0950337bb2b36ec0384d9e85ac4e83791[m[33m ([m[1;31morigin/Fix_store_to_s3[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Wed Apr 12 07:11:33 2023 +0900
+
+    aws-sdkのgemを修正
+
+[33mcommit ac084d3da88da92ecb9b70e5940821ea71b3a78d[m
+Merge: 06c497f ee3b999
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Mon Apr 10 21:28:58 2023 +0900
+
+    Merge pull request #96 from yamaguchi1011/add_aws_sdk_s3
+    
+    aws_sdk-s3を追加した
+
+[33mcommit ee3b99985c530476a4b6ffe387887245a09547fa[m[33m ([m[1;31morigin/add_aws_sdk_s3[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Apr 10 21:28:06 2023 +0900
+
+    aws_sdk-s3を追加した
+
+[33mcommit 06c497f6d05c2be1ebc1b501e05c80c3e944262d[m
+Merge: 76b0514 a99c110
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Mon Apr 10 21:19:07 2023 +0900
+
+    Merge pull request #95 from yamaguchi1011/store_on_AWS_s3
+    
+    s３に保存できるように修正
+
+[33mcommit a99c110e8c13e8770c9e1323057d7d0958e6d58e[m[33m ([m[1;31morigin/store_on_AWS_s3[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Apr 10 21:18:43 2023 +0900
+
+    s３に保存できるように修正
+
+[33mcommit 76b05140521c8cac87754100495a68ec5bb6e42d[m
+Merge: 3f3ba9d 8fbf94b
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 22:18:37 2023 +0900
+
+    Merge pull request #94 from yamaguchi1011/Fix_carrierwave_fog_public
+    
+    s３に保存できるように修正
+
+[33mcommit 8fbf94bfab86babc9572932a1ad89b42fd3dbb71[m[33m ([m[1;31morigin/Fix_carrierwave_fog_public[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 22:17:08 2023 +0900
+
+    s３に保存できるように修正
+
+[33mcommit 3f3ba9d4550691ee68a6377e275c63897e6ac7ba[m
+Merge: 9f05d25 b07a3fa
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 18:06:52 2023 +0900
+
+    Merge pull request #93 from yamaguchi1011/Fix_avator_uploader_s3
+    
+    s３に保存できるように修正
+
+[33mcommit b07a3fa178709612b94adf24676fe872354e82b1[m[33m ([m[1;31morigin/store_to_s3_re[m[33m, [m[1;31morigin/Fix_avator_uploader_s3[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 18:06:24 2023 +0900
+
+    s３に保存できるように修正
+
+[33mcommit 9f05d25b92ed426f2ca8421c8a8542c44a2e3d02[m
+Merge: 03ed4d5 1b9ffa8
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 17:21:53 2023 +0900
+
+    Merge pull request #92 from yamaguchi1011/fix_carrierwave
+    
+    S3に保存
+
+[33mcommit 1b9ffa80605662cc1d4a545b997b2fea47d1c8ce[m[33m ([m[1;31morigin/fix_carrierwave[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 17:21:17 2023 +0900
+
+    S3に保存
+
+[33mcommit 03ed4d58f72d67d270dcd83865738d8c41419054[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 16:56:59 2023 +0900
+
+    プロフィール画像読み込み修正
+
+[33mcommit 38c072939afa7c8e11304627cffc791d1491314e[m
+Merge: d1396a1 e6aed31
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 15:27:58 2023 +0900
+
+    Merge pull request #91 from yamaguchi1011/Fix_database.yml_production_2
+    
+    本番環境用のdb設定_password
+
+[33mcommit e6aed31bf88e3ac30855e966fb8bfa1b83c8ed5d[m[33m ([m[1;31morigin/Fix_database.yml_production_2[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 15:27:38 2023 +0900
+
+    本番環境用のdb設定_password
+
+[33mcommit d1396a10733398a0f5ee766bb1ca3b0e50c5af6b[m
+Merge: c4353a0 bc694dd
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 15:13:02 2023 +0900
+
+    Merge pull request #90 from yamaguchi1011/Fix_database.yml_production
+    
+    本番環境用のdb設定
+
+[33mcommit bc694dde9e26ae511e319ed0e708847e69a42ad3[m[33m ([m[1;31morigin/Fix_database.yml_production[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 15:12:33 2023 +0900
+
+    本番環境用のdb設定
+
+[33mcommit c4353a0270f63a47e1e49248d355f762523f42b3[m
+Merge: a9bed28 3bea7c7
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 14:30:06 2023 +0900
+
+    Merge pull request #89 from yamaguchi1011/Fix_database.yml
+    
+    database.yml本番環境に修正
+
+[33mcommit 3bea7c76bde4d5f8669c1a11f3045e732121e3cb[m[33m ([m[1;31morigin/Fix_database.yml[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 14:29:41 2023 +0900
+
+    database.yml本番環境に修正
+
+[33mcommit a9bed28654d2e9248da3efa923e7106c490de87c[m
+Merge: f978492 f14374a
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 14:26:45 2023 +0900
+
+    Merge pull request #88 from yamaguchi1011/Fix_Gemfile_tailwindcss
+    
+    Gemfileを本番環境に合わせて修正した2
+
+[33mcommit f14374a2538d7eac8f1aadad24b54d3035e1f377[m[33m ([m[1;31morigin/Fix_Gemfile_tailwindcss[m[33m, [m[1;31morigin/Fix_Gemfile_production[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 14:23:49 2023 +0900
+
+    Gemfileを本番環境に合わせて修正した2
+
+[33mcommit f9784920c17f4d1f30e9d2f641ff7fb6dce25998[m
+Merge: 34117a7 ca111fa
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 13:54:50 2023 +0900
+
+    Merge pull request #87 from yamaguchi1011/Fix_Gemfile_production
+    
+    Gemfileを本番環境に合わせて修正した
+
+[33mcommit ca111fa03a1f4616d2406831326b8ebf351fc92f[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 13:54:25 2023 +0900
+
+    Gemfileを本番環境に合わせて修正した
+
+[33mcommit 34117a7d5049b622f275e56757b0476c3eb3c767[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 12:37:23 2023 +0900
+
+    本番環境、開発環境db修正
+
+[33mcommit 17c607fdc385e4039ff6243a2c8f5c45ea8cb366[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 12:21:15 2023 +0900
+
+    本番環境unicorn設定
+
+[33mcommit 7420c64fcbf9a0be684f0baab08e3adaa0ab3e16[m
+Merge: 0d631cc 727cde9
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Apr 9 09:33:08 2023 +0900
+
+    Merge pull request #86 from yamaguchi1011/post_edit_turbo
+    
+    post編集をturboで実装
+
+[33mcommit 727cde950c710fa0e1002a133b54e9e0e6943523[m[33m ([m[1;31morigin/post_edit_turbo[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Apr 9 09:32:06 2023 +0900
+
+    post編集をturboで実装
+
+[33mcommit 0d631cc097d6dd3eacf221ffa928feee8cda257a[m
+Merge: cbe666d 3ec7091
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Apr 6 00:09:34 2023 +0900
+
+    Merge pull request #85 from yamaguchi1011/fix_header
+    
+    headerのメニューの挙動を修正とコメント一覧の幅を修正
+
+[33mcommit 3ec70912e56ccf8c041e998a09f71b3805d488f3[m[33m ([m[1;31morigin/fix_header[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Apr 6 00:09:10 2023 +0900
+
+    headerのメニューの挙動を修正とコメント一覧の幅を修正
+
+[33mcommit cbe666dd4c2af8e5c52b491c70ed5aa7c2326c7e[m
+Merge: aa65665 b837a5d
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Mar 31 07:46:32 2023 +0900
+
+    Merge pull request #82 from yamaguchi1011/add_new_post_validation
+    
+    動画投稿のバリデーションを追加
+
+[33mcommit b837a5d44b5a55c0b4b44ccc59da3fb3c9686158[m[33m ([m[1;31morigin/add_new_post_validation[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Mar 31 07:46:05 2023 +0900
+
+    動画投稿のバリデーションを追加
+
+[33mcommit aa656655c88279427f916f24a6ea7c794b567a03[m
+Merge: 07da38a e5708b8
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Mar 18 14:24:22 2023 +0900
+
+    Merge pull request #81 from yamaguchi1011/newpost_page
+    
+    投稿新規作成画面を作成
+
+[33mcommit e5708b8853cec8715c7a719348f4b996ab357991[m[33m ([m[1;31morigin/newpost_page[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Mar 18 14:23:53 2023 +0900
+
+    投稿新規作成画面を作成
+
+[33mcommit 07da38a0a71ff782d2885d48bd4ee07600c2c87b[m
+Merge: c691343 b159c72
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Mar 17 09:53:57 2023 +0900
+
+    Merge pull request #80 from yamaguchi1011/Fix_view
+    
+    tarbosyorituika途中
+
+[33mcommit b159c72136cc2a6cc76b821b271073336c08dd16[m[33m ([m[1;31morigin/Fix_view[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Mar 17 09:53:12 2023 +0900
+
+    tarbo途中
+
+[33mcommit c691343f5c7343bfa08a98bf160c0c498890afa6[m
+Merge: dcb675a 6815870
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Mar 12 21:44:19 2023 +0900
+
+    Merge pull request #74 from yamaguchi1011/Fix_view
+    
+    viewを修正し、turboでの処理を追加した（無限スクロール他）
+
+[33mcommit 68158704637cec69cdac64684014e31c994c267a[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Mar 12 21:43:34 2023 +0900
+
+    viewを修正し、turboでの処理を追加した（無限スクロール他）
+
+[33mcommit dcb675a5624b45a5ff5b51cffdcfb14c8e1f1d1a[m
+Merge: 86daae5 d01c473
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Feb 26 21:25:13 2023 +0900
+
+    Merge pull request #73 from yamaguchi1011/add_effective_count_profile
+    
+    プロフィール画面にeffective数を表示
+
+[33mcommit d01c47311d5c8a6b74c84ceb723e83524428ce5a[m[33m ([m[1;31morigin/add_effective_count_profile[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Feb 26 21:24:38 2023 +0900
+
+    プロフィール画面にeffective数を表示
+
+[33mcommit 86daae570bf137e3b5eaed240079a32d37f60513[m
+Merge: a3f0ee3 b3fc1b8
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Feb 26 13:19:27 2023 +0900
+
+    Merge pull request #72 from yamaguchi1011/search_posts
+    
+    検索機能を追加
+
+[33mcommit b3fc1b8a8492397544ef43098105b2e86724b638[m[33m ([m[1;31morigin/search_posts[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Feb 26 13:18:27 2023 +0900
+
+    検索機能を追加
+
+[33mcommit a3f0ee377cdf2f8ae0570a508c395e72ba4196df[m
+Merge: 80cb164 5e68b64
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Feb 26 11:09:58 2023 +0900
+
+    Merge pull request #70 from yamaguchi1011/password_reset
+    
+    パスワードリセット追加
+
+[33mcommit 5e68b647f0ab0dcc7283de3617359780d7390a0f[m[33m ([m[1;31morigin/password_reset[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Feb 26 11:09:26 2023 +0900
+
+    パスワードリセット追加
+
+[33mcommit 80cb164824379dfca0a872e3ff032fe85148e7e1[m
+Merge: d128415 f95c428
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Feb 26 09:05:42 2023 +0900
+
+    Merge pull request #69 from yamaguchi1011/add_turbo_flash
+    
+    ログイン失敗時にフラッシュメッセージを追加
+
+[33mcommit f95c428873caa5e800d55854a24fdc0adfb48b05[m[33m ([m[1;31morigin/add_turbo_flash[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Feb 26 09:04:04 2023 +0900
+
+    ログイン失敗時にフラッシュメッセージを追加
+
+[33mcommit d1284155d740582cc8df6583e66354968061a880[m
+Merge: 2c8468c a6c5098
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Mon Feb 20 02:37:14 2023 +0900
+
+    Merge pull request #68 from yamaguchi1011/add_pitching_form
+    
+    ピッチングフォームを追加
+
+[33mcommit a6c5098f1dc3f87a09017862ec27d85c53243eef[m[33m ([m[1;31morigin/add_pitching_form[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Feb 20 02:36:45 2023 +0900
+
+    ピッチングフォームを追加
+
+[33mcommit 2c8468cd12c8ea62441138c7738451be48411ea8[m
+Merge: a301a00 66ff2d1
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Feb 19 19:39:26 2023 +0900
+
+    Merge pull request #67 from yamaguchi1011/add_progressbar_turbo
+    
+    分析投稿時にプログレスバーを表示
+
+[33mcommit 66ff2d12ea2e1e9e558badb785b5a3dea325ca77[m[33m ([m[1;31morigin/add_progressbar_turbo[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Feb 19 19:34:57 2023 +0900
+
+    分析投稿時にプログレスバーを表示
+
+[33mcommit a301a005795056f122d240e56a9807d439d5c7d2[m
+Merge: 46749e3 bb0b9fe
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Tue Feb 14 07:29:03 2023 +0900
+
+    Merge pull request #66 from yamaguchi1011/python_form_analysis_elbow
+    
+    pythoで画像を分析して画像自体に結果を描画した。プロフィール画面を追加した
+
+[33mcommit bb0b9fe73cd7c125717597790b1e6987bee97ea3[m[33m ([m[1;31morigin/python_form_analysis_elbow[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Tue Feb 14 07:25:37 2023 +0900
+
+    pythoで画像を分析して画像自体に結果を描画した。プロフィール画面を追加した
+
+[33mcommit 46749e32d2e41dc9726370cd0e1a62e975346c90[m
+Merge: 0f429a9 8e2f9da
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Wed Feb 8 23:45:22 2023 +0900
+
+    Merge pull request #61 from yamaguchi1011/profile_edit
+    
+    プロフィール編集機能追加
+
+[33mcommit 8e2f9da520c39cd5d1f9989efbf854c8c9972773[m[33m ([m[1;31morigin/profile_edit[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Wed Feb 8 23:44:05 2023 +0900
+
+    プロフィール編集機能追加
+
+[33mcommit 0f429a99bd34956ea4850c91a87b945491bf0c58[m
+Merge: 3cde43f 2a1706a
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Wed Feb 8 22:57:05 2023 +0900
+
+    Merge pull request #60 from yamaguchi1011/commnet_delete
+    
+    コメント削除機能追加
+
+[33mcommit 2a1706a5710ea852f0918261d22e3decc04cb603[m[33m ([m[1;31morigin/commnet_delete[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Wed Feb 8 22:56:10 2023 +0900
+
+    コメント削除機能追加
+
+[33mcommit 3cde43f7d60a8740206ab7a455b5424cf5ba2ac1[m
+Merge: 88556c0 47f55e8
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Tue Feb 7 07:05:52 2023 +0900
+
+    Merge pull request #57 from yamaguchi1011/effective_comment
+    
+    効果があったボタン追加
+
+[33mcommit 47f55e829f4bab227d24ba2e231baf0e8724e83f[m[33m ([m[1;31morigin/effective_comment[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Tue Feb 7 07:05:12 2023 +0900
+
+    効果があったボタン追加
+
+[33mcommit 88556c09ba38409e6737482bd7d882300a811f44[m
+Merge: 772eb2e f9c9c32
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Feb 4 23:37:09 2023 +0900
+
+    Merge pull request #55 from yamaguchi1011/post_edit_delete
+    
+    投稿の編集と削除機能を追加した
+
+[33mcommit f9c9c32b04267944ed4d597db35a9a00f89764b5[m[33m ([m[1;31morigin/post_edit_delete[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Feb 4 23:35:35 2023 +0900
+
+    投稿の編集と削除機能を追加した
+
+[33mcommit 772eb2e41730b5c7d25e79d5bb2cc71ba92d8712[m
+Merge: 563cb02 2cd597d
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Feb 4 19:02:07 2023 +0900
+
+    Merge pull request #51 from yamaguchi1011/dynamic_title
+    
+    ページごとにタイトルを出力
+
+[33mcommit 2cd597d33072437227c04fd44c94b7bb063d5257[m[33m ([m[1;31morigin/dynamic_title[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Feb 4 19:00:59 2023 +0900
+
+    ページごとにタイトルを出力
+
+[33mcommit 563cb027fb4d2b5295d104f149bfc5427e94b0d6[m
+Merge: 0225f85 66c17df
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Feb 4 18:44:15 2023 +0900
+
+    Merge pull request #50 from yamaguchi1011/add_comment_post_show
+    
+    投稿詳細画面にコメント投稿機能を追加
+
+[33mcommit 66c17df44a3e1f4e56469ad3da39f2982a844912[m[33m ([m[1;31morigin/add_comment_post_show[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Feb 4 18:43:24 2023 +0900
+
+    投稿詳細画面にコメント投稿機能を追加
+
+[33mcommit 0225f857c252d6adbdd5dcd63547de13a6b8e569[m
+Merge: d1bd122 cabda8b
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Feb 4 11:26:48 2023 +0900
+
+    Merge pull request #48 from yamaguchi1011/create_comment
+    
+    コメント投稿機能追加、詳細ページ作成
+
+[33mcommit cabda8b2a0e2a714aab0da394c41a2edd3c5dfcb[m[33m ([m[1;31morigin/create_comment[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Feb 4 11:26:11 2023 +0900
+
+    コメント投稿機能追加、詳細ページ作成
+
+[33mcommit d1bd12248dc111a30ae9ab8a7c4be7c8212595a3[m
+Merge: 10fe2d5 ad3ecaa
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Feb 3 05:33:36 2023 +0900
+
+    Merge pull request #46 from yamaguchi1011/right_handed_left_handed
+    
+    左投げ右投げで処理を分岐
+
+[33mcommit ad3ecaa3cde63374f4c2144c7ae122000ccb959b[m[33m ([m[1;31morigin/right_handed_left_handed[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Feb 3 05:31:17 2023 +0900
+
+    左投げ右投げで処理を分岐
+
+[33mcommit 10fe2d52209257db152c0978dcc4b64ce7580b9e[m
+Merge: 7c7cdf9 01939b4
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Mon Jan 30 06:26:55 2023 +0900
+
+    Merge pull request #44 from yamaguchi1011/pass_video_to_form.py
+    
+    Pass video to form.py
+
+[33mcommit 01939b4d03968040f168e1a8319ee72ffca030b4[m
+Merge: 947173a 7c7cdf9
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Mon Jan 30 06:26:32 2023 +0900
+
+    Merge branch 'main' into pass_video_to_form.py
+
+[33mcommit 947173a05fbd4d65cea22335bea0107e6de156d0[m[33m ([m[1;31morigin/pass_video_to_form.py[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Jan 30 06:15:55 2023 +0900
+
+    pythonのコードに動画を渡して確認画面なしで投稿
+
+[33mcommit a771431cb97edf242e92ef7cbe2ba327b68b4715[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Jan 27 14:10:52 2023 +0900
+
+    Revert "Revert "Revert "一時的にアップ"""
+    
+    This reverts commit 4bf4c7fca8e3fc948f022c8124d1a263c9255fb4.
+
+[33mcommit 802d0d6dbe2e38ca79283549718c87b7266e3b71[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Jan 27 14:08:09 2023 +0900
+
+    Revert "Revert "一時的にアップ""
+    
+    This reverts commit b5a9acd8002b795477ac9d530c3beb7758e1054a.
+
+[33mcommit aac149c6899d602076e51c56e43123e91d30f5e0[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Jan 27 14:07:04 2023 +0900
+
+    Revert "一時的にアップ"
+    
+    This reverts commit ab2724b9f9ea0e281dff5955ec461ca5721dfe82.
+
+[33mcommit e1f33f751be178618530669f66f5a2e2b12d0918[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Jan 27 14:04:13 2023 +0900
+
+    一時的にアップ
+
+[33mcommit 7c7cdf990399a9d3e4f3cc8a842b797763df8c24[m
+Merge: 49303a2 7ca31cc
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Jan 14 18:32:24 2023 +0900
+
+    Merge pull request #33 from yamaguchi1011/add_form.py
+    
+    form.pyを追加
+
+[33mcommit 7ca31ccb0a11c28eb4c5de5c8c960824655dc3e5[m[33m ([m[1;31morigin/add_form.py[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Jan 14 18:31:29 2023 +0900
+
+    form.pyを追加
+
+[33mcommit 49303a2a905b04d5a9370c15541700b02e4f18d5[m
+Merge: 83d6567 bc10b14
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 01:12:39 2023 +0900
+
+    Merge pull request #32 from yamaguchi1011/Fix_gemfile_myswl
+    
+    mysqlを追加した
+
+[33mcommit bc10b140cc82d0637c82f9171f9e82f05a39f318[m[33m ([m[1;31morigin/Fix_gemfile_myswl[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Jan 12 01:12:14 2023 +0900
+
+    mysqlを追加した
+
+[33mcommit 83d65676746d073adfc39fedd3a4bb89541e4a4a[m
+Merge: 3ca126f faa3fed
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 00:58:31 2023 +0900
+
+    Merge pull request #31 from yamaguchi1011/Fix_gemfile_sorcery
+    
+    sorceryを本番環境でも使えるように修正
+
+[33mcommit faa3fed74ff16db41f55771b5964ca8f5ab09b2b[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Jan 12 00:58:05 2023 +0900
+
+    sorceryを本番環境でも使えるように修正
+
+[33mcommit 3ca126f28419afab6cc231c6683b1c8cc9b77fbf[m
+Merge: 683ba5d 59b1208
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 00:46:29 2023 +0900
+
+    Merge pull request #30 from yamaguchi1011/Fix_gemfile_pg_v
+    
+    pgのバージョン指定追加
+
+[33mcommit 59b12084a52c7ce821568b807e9a59b9763d2ce9[m[33m ([m[1;31morigin/Fix_gemfile_pg_v[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Jan 12 00:45:54 2023 +0900
+
+    pgのバージョン指定追加
+
+[33mcommit 683ba5d8361d90e7107c67da36246423bb9164bf[m
+Merge: 762777d 230316d
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 00:29:20 2023 +0900
+
+    Merge pull request #29 from yamaguchi1011/Fix_gemfile_pg2
+    
+    pgを修正
+
+[33mcommit 230316ddbc9900b658ac7b0d3a782c5b041a6969[m
+Merge: 9825039 762777d
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 00:29:12 2023 +0900
+
+    Merge branch 'main' into Fix_gemfile_pg2
+
+[33mcommit 9825039a2c66349ee9ed1c6143aeca157e00c387[m[33m ([m[1;31morigin/Fix_gemfile_pg2[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Jan 12 00:25:36 2023 +0900
+
+    pgを修正
+
+[33mcommit 762777d2b3b6177a6de593c914aae4acce2e5377[m
+Merge: 7650e6f 632b966
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 00:12:42 2023 +0900
+
+    Merge pull request #28 from yamaguchi1011/fix_gemfile_pg
+    
+    gemのupdate
+
+[33mcommit 632b9668b4f7d5f74aeb66a9ce31e7bf0e47aa11[m[33m ([m[1;31morigin/fix_gemfile_pg[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Jan 12 00:12:17 2023 +0900
+
+    gemのupdate
+
+[33mcommit 7650e6fef843ca5f969441ba935e32d91d5664fc[m
+Merge: 15cbb64 570f8c7
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Jan 12 00:05:15 2023 +0900
+
+    Merge pull request #27 from yamaguchi1011/add_production
+    
+    Add production
+
+[33mcommit 570f8c78661eaeb00b49c0e83f9ea889be8e4d5d[m[33m ([m[1;31morigin/add_production[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Jan 12 00:04:32 2023 +0900
+
+    productionファイルを追加
+
+[33mcommit d43414235aba2f6b25f39bd751abe47693a9f21e[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Wed Jan 11 21:50:19 2023 +0900
+
+    pgに修正
+
+[33mcommit 15cbb640b7fec079742b219a4befe7e6244e2e15[m
+Merge: 7486253 c6d9df9
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Wed Jan 11 21:17:14 2023 +0900
+
+    Merge pull request #26 from yamaguchi1011/fix_gemfile
+    
+    mysql追加
+
+[33mcommit c6d9df938f2f9f6e1a9e76681d8174ff2afab64d[m[33m ([m[1;31morigin/fix_gemfile[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Wed Jan 11 21:16:36 2023 +0900
+
+    mysql追加
+
+[33mcommit 74862539bb8831a5ff25d14d0c038b15e08235e2[m[33m ([m[1;31morigin/Fix_save_video_to_awsS3[m[33m)[m
+Merge: 1c1e0b8 4a8b59d
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Fri Dec 30 16:54:10 2022 +0900
+
+    Merge pull request #25 from yamaguchi1011/save_video_to_awsS3
+    
+    s3に動画を保存
+
+[33mcommit 4a8b59dff5f7d921038ed50fd637a0fbe49383c1[m[33m ([m[1;31morigin/save_video_to_awsS3[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Fri Dec 30 16:49:45 2022 +0900
+
+    s3に動画を保存
+
+[33mcommit 1c1e0b8479710b75d942afd8cd0186ec52aaa85b[m
+Merge: 05f2d94 a359292
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Nov 19 13:33:09 2022 +0900
+
+    Merge pull request #17 from yamaguchi1011/upload_video_carrierwave
+    
+    CarrierWaveで動画投稿機能を追加した(保存先はpublic配下に設定)
+
+[33mcommit a359292ca5e3c6f04fc4ddc6f6040b10753eae15[m[33m ([m[1;31morigin/upload_video_carrierwave[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Nov 19 13:31:28 2022 +0900
+
+    CarrierWaveで動画投稿機能を追加した(保存先はpublic配下に設定)
+
+[33mcommit 05f2d94070b86664c358a78a5c6dc9a714081727[m
+Merge: 21f8785 d72aaba
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sat Nov 19 09:56:35 2022 +0900
+
+    Merge pull request #16 from yamaguchi1011/create_post
+    
+    投稿機能を追加
+
+[33mcommit d72aaba2a807d8141b6ce642c3f2fcd471a8ab9f[m[33m ([m[1;31morigin/create_post[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Nov 19 09:55:41 2022 +0900
+
+    投稿機能を追加
+
+[33mcommit 21f8785c7f404b8ae8eed59eeb731632d9798fc5[m
+Merge: f800ed0 3cb323e
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Tue Nov 15 22:23:57 2022 +0900
+
+    Merge pull request #15 from yamaguchi1011/post_index
+    
+    投稿一覧を追加
+
+[33mcommit 3cb323ef661c50ef01b1bcd492d5bf0bebbf3a8e[m[33m ([m[1;31morigin/post_index[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Tue Nov 15 22:23:05 2022 +0900
+
+    投稿一覧を追加
+
+[33mcommit f800ed08b9afb14af0cb45ed7d0d892a29aa003f[m
+Merge: d064b7a 78f4b70
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Tue Nov 15 07:57:02 2022 +0900
+
+    Merge pull request #14 from yamaguchi1011/add_flash_messages
+    
+    フラッシュメッセージ追加
+
+[33mcommit 78f4b70f336ad9ae77c59dd7b8c0c099a0270f5a[m[33m ([m[1;31morigin/add_flash_messages[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Tue Nov 15 07:56:15 2022 +0900
+
+    フラッシュメッセージ追加
+
+[33mcommit d064b7adb374f74946d3ce0cb429aa3cb63d71cf[m
+Merge: b4dd8c0 8720e3c
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Nov 13 23:46:56 2022 +0900
+
+    Merge pull request #13 from yamaguchi1011/add_i18n
+    
+    add i18n
+
+[33mcommit 8720e3c9181c9747c7703d292ccc317502d68c49[m[33m ([m[1;31morigin/add_i18n[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Nov 13 23:46:19 2022 +0900
+
+    add i18n
+
+[33mcommit b4dd8c07bd96d152bdddb96b370d69f71b4c703d[m
+Merge: ca04238 e33708a
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Wed Nov 9 07:22:07 2022 +0900
+
+    Merge pull request #12 from yamaguchi1011/add_users_login
+    
+    sorceryでログイン機能追加
+
+[33mcommit e33708a25c2c4c509eecfb83711edee4382bbcc8[m[33m ([m[1;31morigin/add_users_login[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Nov 7 07:27:47 2022 +0900
+
+    sorceryでログイン機能追加
+
+[33mcommit ca042386d8c4d386e9bff5912ccbc77be4307260[m
+Merge: d4afdd3 47532f2
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Sun Nov 6 11:58:43 2022 +0900
+
+    Merge pull request #11 from yamaguchi1011/delete_scaffold_user_Add_sorcery
+    
+    scaffoldで作ったusersを削除しsorceryでusersを作成した.postのルーティングを削除
+
+[33mcommit 47532f2035adce30159d8fecc2eaa19e8f9ee597[m[33m ([m[1;31morigin/delete_scaffold_user_Add_sorcery[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Nov 6 11:54:17 2022 +0900
+
+    scaffoldで作ったusersを削除しsorceryでusersを作成した.postのルーティングを削除
+
+[33mcommit d4afdd3e8fa1eececd9a358352f0e42539bfcec7[m
+Merge: 7c49c88 4939ded
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Nov 3 21:02:31 2022 +0900
+
+    Merge pull request #10 from yamaguchi1011/readme_er
+    
+    er図をreadmeに追加した
+
+[33mcommit 4939dede20a5aadfc4af6666a3d9c67ddb32d36c[m[33m ([m[1;31morigin/readme_er[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Nov 3 21:02:04 2022 +0900
+
+    er図をreadmeに追加した
+
+[33mcommit 7c49c88c0f487350075c29af8864b6754096c7de[m
+Merge: f9db331 310abcd
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Nov 3 20:58:50 2022 +0900
+
+    Merge pull request #9 from yamaguchi1011/Fix_file
+    
+    Fix file
+
+[33mcommit 310abcd51ab5dbe661e44962a890e30de4910700[m[33m ([m[1;31morigin/Fix_file[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Nov 3 20:57:23 2022 +0900
+
+    ディレクトリの修正
+
+[33mcommit f4125ac712e7f805aa897a4324d227a3b12c945a[m
+Merge: dcc3c55 f9db331
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Nov 3 20:54:37 2022 +0900
+
+    Merge remote-tracking branch 'origin/main'
+
+[33mcommit f9db3317cfa3116a5dbf1b188532738592c87ea3[m
+Merge: 5b4f55a fd683b1
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Thu Nov 3 20:38:21 2022 +0900
+
+    Merge pull request #8 from yamaguchi1011/FIx_readme
+    
+    不要なReadmeファイル削除
+
+[33mcommit fd683b122020c5f3be14f00e21fc851c98194186[m[33m ([m[1;31morigin/FIx_readme[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Nov 3 20:37:17 2022 +0900
+
+    不要なReadmeファイル削除
+
+[33mcommit 5b4f55a8023087ff4750eb8a5db6ae6dcc2c57a7[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Thu Nov 3 19:14:16 2022 +0900
+
+    scaffoldでUserとPostsを作成した
+
+[33mcommit a4e67d6252532bcad4117b278791773f165e8133[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sat Oct 29 12:28:02 2022 +0900
+
+    rails new
+
+[33mcommit fdc65174a16c0da413c09322f42185f27be29151[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Jul 25 23:13:16 2022 +0900
+
+    ER図を追加
+
+[33mcommit dcc3c55b210da22d31027623a3558e77a5b64700[m[33m ([m[1;31morigin/readme_01[m[33m)[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Sun Jul 24 09:10:31 2022 +0900
+
+    画面遷移図の提出１回目とREADMEをマークダウンに修正
+
+[33mcommit ee58102a9fbce0598c713d4ea04a7f2ca4be44a6[m
+Author: yamaguchi <yamaguchi1001@icloud.com>
+Date:   Mon Jul 18 07:26:56 2022 +0900
+
+    Add:README
+
+[33mcommit a09bd6f780633816fe778bf279fae1063e366272[m
+Author: yamaguchi1011 <68014135+yamaguchi1011@users.noreply.github.com>
+Date:   Wed Jul 13 06:30:09 2022 +0900
+
+    Initial commit
