@@ -45,4 +45,6 @@ config/environments/*.local.yml
 mediapipe/
 ffmpeg-6.0-amd64-static/
 node_modules
+
 venv/
+
