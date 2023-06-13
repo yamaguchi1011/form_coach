@@ -1,6 +1,6 @@
 
 <%= form_with  model: post, url: {controller: 'posts', action: 'analysis'} ,local: true do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.text_area :body, class: 'form-control', rows: 10, maxlength: "140"%>
 

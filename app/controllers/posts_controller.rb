@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   require "open3"
+  require 'aws-sdk-s3'
+  require "tempfile"
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
@@ -10,22 +12,27 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
+  
 
   def analysis
-    @post = current_user.posts.build(post_params)
-    if @post.body.present? && @post.video.present? && @post.dominant_arm && @post.pitching_form.present?
-      video_path = File.absolute_path(@post.video.file.path)
-      dominant_arm = @post.dominant_arm
-      # Open3.capture3でpythonのコードを実行する。video_pathで動画のURLを、dominant_armで利き腕を渡す。
-      @result = Open3.capture3("python form.py #{video_path} #{dominant_arm}")
-      if @post.save
-        redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
-      end
-    else       
-      flash.now.alert = t('defaults.message.not_created', item: Post.model_name.human)
-      render :new, status: :unprocessable_entity
-    end
-  end
+@post = current_user.posts.build(post_params)
+if @post.body.present? && @post.video.present? && @post.dominant_arm && @post.pitching_form.present?
+video_path = File.absolute_path(@post.video.file.path)
+dominant_arm = @post.dominant_arm
+# Open3.capture3でpythonのコードを実行する。video_pathで動画のURLを、dominant_armで利き腕を渡す。
+stdout,stderr,status = Open3.capture3("source ./venv/bin/activate && python ./form.py #{video_path} #{dominant_arm}")
+#stdout,stderr,status = source /form_coach/venv/bin/activate && python/form_coach/form.py #{video_path} #{dominant_arm}
+#stdout, stderr, status = source ./venv/bin/activate && python ./form.py #{video_path} #{dominant_arm}
+logger.debug"#{stderr}"
+logger.debug"#{stdout}"
+if @post.save
+redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
+end
+else
+flash.now.alert = t('defaults.message.not_created', item: Post.model_name.human)
+render :new, status: :unprocessable_entity
+end
+end
 
   def confirm
     @post = Post.new
@@ -64,6 +71,7 @@ class PostsController < ApplicationController
     #   render posts_confirm_path
     end
   end
+    
 
   def show
     @post = Post.find(params[:id])
