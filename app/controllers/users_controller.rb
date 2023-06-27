@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @posts = User.posts.order("created_at DESC")
-    
   end
 
   def create
@@ -24,6 +22,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name)
   end
-
 
 end
