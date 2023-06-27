@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
-    # @posts = Post.all.includes([:user, :comments]).order(created_at: :desc)
-    # @comments = Comment.includes(:post)
   end
 
 end
