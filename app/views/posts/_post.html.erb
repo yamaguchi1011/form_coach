@@ -22,7 +22,7 @@
           <p class="card-text"><%= truncate(post.body,length: 30)%></p>
         </div>
         <div class="col-md-9">
-          <%= video_tag post.video_url, autoplay: true, muted: true, class: 'card-img-bottom', controls: true,oncontextmenu: 'return false', controlslist: "nodownload" unless post.video.blank? %>
+          <%= video_tag post.video_url, autoplay: true, muted: true, playsinline: true,  class: 'card-img-bottom', controls: true,oncontextmenu: 'return false', controlslist: "nodownload" unless post.video.blank? %>
         </div>
       </div>
     </div>
