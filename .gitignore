@@ -42,3 +42,7 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 
+mediapipe/
+ffmpeg-6.0-amd64-static/
+venv/
+node_modules/
