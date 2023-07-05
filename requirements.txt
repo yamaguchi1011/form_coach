@@ -1,3 +1,4 @@
-mediapipe==0.9.3.0
-numpy==1.19.3
-opencv-contrib-python==4.6.0.66
+mediapipe==0.10.1
+numpy==1.25.0
+opencv-contrib-python==4.8.0.74
+ffmpeg==1.4

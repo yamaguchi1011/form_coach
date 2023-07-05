@@ -5,8 +5,6 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
-    # @posts = Post.all.includes([:user, :comments]).order(created_at: :desc)
-    # @comments = Comment.includes(:post)
   end
 
   def new
@@ -34,7 +32,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-# session使う方法で実験中
   def create
     @post = Post.new(post_params)
       
