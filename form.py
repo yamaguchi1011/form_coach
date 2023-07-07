@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 # 初期設定
-# csvで出力したければ使用する（出力方法は別で調べる）
 import csv
 import subprocess
-# from tkinter import font
-# from turtle import right
 import mediapipe as mp
 import numpy as np
 import os
@@ -24,16 +21,9 @@ pose = mp_pose.Pose(
 mp_drawing = mp.solutions.drawing_utils 
 drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
-# サンプルビデオの読み込み＋静止画に分解
-
-# ビデオの指定
-
+# railsから渡されてきた動画のpathと利き腕を変数に格納する。
 video_path = sys.argv[1]
 dominant_arm = sys.argv[2]
-
-# 絶対パス　/Users/yamaguchitakashi/form_coach/video/test2.mp4
-# video2images
-
 
 # 既にimagesフォルダーがあれば削除
 if os.path.isdir('images'):
@@ -62,14 +52,7 @@ def video_2_images(video_file= video_path,
         i += 1 
     cap.release()  
 video_2_images() 
-
 # # MediaPipeで静止画を処理
-
-# import cv2
-# from google.colab.patches import cv2_imshow
-# import numpy as np
-
-
 # image file names to files in list format
 files=[]
 for name in sorted(glob.glob('./images/*.png')):
@@ -235,7 +218,7 @@ else:
       start_file_number = 45
       # ファイル名とってきて整数に変換する。
       name_file_number = int(os.path.splitext(os.path.basename(name))[0]) 
-      # フォルダの中の一番最後から３０枚までの画像は大体はフォロースルーの状態のなので肘の危険
+      # フォルダの中の一番最後から３０枚までの画像は大体はフォロースルーの状態のなので肘の危険判定には含めない
       
       # ①座標の値が投げ手側肘≦投げ手側手首≦投げ手側肩の順番になった時かつ、
       # ②画像のファイル名が000045.png以上、最後から数えて３０番目まで（フォルダの中の一番最後から３０枚までの画像は大体はフォロースルーの状態のため危険度判定に含めたくない）で、
@@ -251,7 +234,6 @@ else:
                                 color=(0,0,255),
                                 thickness=9,
                                 lineType=cv2.LINE_4)    
-        
         cv2.putText(annotated_image, 
                                 text=str(angle), 
                                 org=(100,180), 
@@ -261,7 +243,6 @@ else:
                                 thickness=8,
                                 lineType=cv2.LINE_4)     
       else:
-
         # 角度を画像内に描画
         cv2.putText(annotated_image, 
                                 text='SAFETY', 
@@ -293,115 +274,8 @@ else:
     cv2.imwrite(name, annotated_image)  
 # 左投げの場合ここまで
 
-
-
-#   試しに出力するならコメントアウトを外す
-  # 写真の名前と、写真の画像データをとってこれる 
-  # print(name, annotated_image)
-
-  # すべての写真に対してランドマークの番号１２の値をとってこれる
-  # print(results.pose_landmarks.landmark[12])
-
-  # 一枚の画像に対してposeの場合は32個のランドマーク（座標）があり、すべての画像に対して全てのランドマークの値を取ってこれる。
-  # print(results.pose_landmarks.landmark)
-
-  # save_csv_dir = './result/csv'
-  # os.makedirs(save_csv_dir, exist_ok=True)
-  # save_csv_name = 'landmark.csv'
-  # with open(os.path.join(save_csv_dir, save_csv_name), 
-  #           'w', encoding='utf-8', newline="") as f:
-
-  #       # csv writer の用意
-  #       writer = csv.DictWriter(f, fieldnames=fields_name())
-  #       writer.writeheader()
-
-        
-  #       landmarks = results.pose_landmarks
-  #    # CSVに書き込み
-  #       record = {}
-  #       record["file_name"] = os.path.basename(name)
-  #       for i, landmark in enumerate(landmarks.landmark):
-  #           record[str(i) + '_x'] = landmark.x
-  #           record[str(i) + '_y'] = landmark.y
-  #           record[str(i) + '_z'] = landmark.z
-  #       writer.writerow(record)
-
-
-
 # 処理した画像をmp4動画に変換
 # 既に output.mp4 があれば削除
-
 if os.path.exists(video_path):
     os.remove(video_path)
-
-
 subprocess.call('ffmpeg-6.0-amd64-static/ffmpeg -r 10 -i images/%06d.png -vcodec libx264 -pix_fmt yuv420p {path}'.format(path=video_path), shell=True)
-
-
-# def fields_name():
-#     # CSVのヘッダを準備
-#     fields = []
-#     fields.append('file_name')
-#     for i in range(21):
-#         fields.append(str(i)+'_x')
-#         fields.append(str(i)+'_y')
-#         fields.append(str(i)+'_z')
-#     return fields
-
-# if __name__ == '__main__':
-#     # 元の画像ファイルの保存先を準備
-#     resource_dir = r'./data'
-#     # 対象画像の一覧を取得
-#     file_list = glob.glob(os.path.join(resource_dir, "*.png"))
-
-#     # 保存先の用意
-#     save_csv_dir = './result/csv'
-#     os.makedirs(save_csv_dir, exist_ok=True)
-#     save_csv_name = 'landmark.csv'
-#     save_image_dir = 'result/image'
-#     os.makedirs(save_image_dir, exist_ok=True)
-
-#     with mp_pose.Pose(static_image_mode=True,
-#             min_detection_confidence=0.5) as pose, \
-#         open(os.path.join(save_csv_dir, save_csv_name), 
-#             'w', encoding='utf-8', newline="") as f:
-
-#         # csv writer の用意
-#         writer = csv.DictWriter(f, fieldnames=fields_name())
-#         writer.writeheader()
-
-#         for file_path in file_list:
-#             # 画像の読み込み
-#             image = cv2.imread(file_path)
-
-#             # 鏡写しの状態で処理を行うため反転
-#             image = cv2.flip(image, 1)
-
-#             # OpenCVとMediaPipeでRGBの並びが違うため、
-#             # 処理前に変換しておく。
-#             # CV2:BGR → MediaPipe:RGB
-#             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-#             image.flags.writeable = False
-
-#             # 推論処理
-#             results = pose.process(image)
-
-#             # 前処理の変換を戻しておく。
-#             image.flags.writeable = True
-#             image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
-#             if not results.pose_landmarks:
-#                 # 検出できなかった場合はcontinue
-#                 continue
-
-#             # ランドマークの座標情報
-#             landmarks = results.pose_landmarks[0]
-
-#             # CSVに書き込み
-#             record = {}
-#             record["file_name"] = os.path.basename(file_path)
-#             for i, landmark in enumerate(landmarks.landmark):
-#                 record[str(i) + '_x'] = landmark.x
-#                 record[str(i) + '_y'] = landmark.y
-#                 record[str(i) + '_z'] = landmark.z
-#             writer.writerow(record)
