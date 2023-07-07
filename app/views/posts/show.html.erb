@@ -20,7 +20,7 @@
               </div>
               <div class="col-md-12">
                 <%#= video_tag @post.video_url,autoplay: true, muted: true, class: 'card-img-bottom ratio', controls: true ,style:"--aspect-ratio: 50%;"unless @post.video.blank?%>
-                <%= video_tag @post.video_url, autoplay: true, muted: true, class: 'card-img-bottom', controls: true,oncontextmenu: 'return false', controlslist: "nodownload" unless @post.video.blank? %>
+                <%= video_tag @post.video_url, autoplay: true, muted: true, playsinline: true, class: 'card-img-bottom', controls: true,oncontextmenu: 'return false', controlslist: "nodownload" unless @post.video.blank? %>
               </div>
           </div>
         </article>
