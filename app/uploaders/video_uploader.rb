@@ -17,6 +17,6 @@ class VideoUploader < CarrierWave::Uploader::Base
   end
 
   def size_range
-    0..30.megabytes
+    0..45.megabytes
   end
 end

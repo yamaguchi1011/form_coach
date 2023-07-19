@@ -8,3 +8,4 @@ ja:
       extension_blacklist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
       content_type_whitelist_error: "%{content_type}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
       content_type_blacklist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      max_size_error: "ファイルは2MG以下のサイズにしてください"

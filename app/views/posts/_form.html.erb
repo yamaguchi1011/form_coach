@@ -7,7 +7,7 @@
     <%= f.select :dominant_arm,[["右投げ","右"],["左投げ","左"]], include_blank: "選択してください"%>
     <%= f.select :pitching_form, Post.pitching_forms.keys.map {|k| [I18n.t("enums.post.pitching_form.#{k}"), k]} ,include_blank: "フォームを選択してください"%>
     <h6>※横からスロー撮影した動画を選ぶと肘に負担がかかっているかどうかを分析できます。</h6>
-    <h6>※30MG以下の動画を分析できます。</h6>
+    <h6>※45MG以下の動画を分析できます。</h6>
     <%= f.file_field :video, :accept => 'video/*' %>
     <%= f.hidden_field :video_cache %>
   </div>
