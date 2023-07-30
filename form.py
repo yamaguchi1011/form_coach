@@ -8,7 +8,7 @@ import os
 import shutil
 import cv2
 import glob
-
+from PIL import ImageFont, ImageDraw, Image
 import sys
 from decimal import *
 mp_pose = mp.solutions.pose
@@ -70,6 +70,31 @@ def fields_name():
         fields.append(str(i)+'_y')
         fields.append(str(i)+'_z')
     return fields
+#画像に日本語を出力するための関数
+# フォントのロード
+font_path = '/var/www/form_coach/app/assets/fonts/NotoSansJP-VariableFont_wght.ttf'
+font_cache = {}
+def get_font(size):
+    if size not in font_cache:
+        font_cache[size] = ImageFont.truetype(font_path, size)
+    return font_cache[size]
+
+def putText_japanese(img, text, point, size, color, thickness=1):
+    #フォントの読み込みを一回にするために関数の外に出すしキャッシュ化する。
+    font = get_font(size)
+
+    #imgをndarrayからPILに変換
+    img_pil = Image.fromarray(img)
+
+    #drawインスタンス生成
+    draw = ImageDraw.Draw(img_pil)
+    
+    #テキスト描画
+    draw.text(point, text, fill=color, font=font, stroke_width=thickness)
+
+    #PILからndarrayに変換して返す
+    return np.array(img_pil)
+    return np.array(img_pil)
 
 # 角度計算
 def calculate_angle(a,b,c):
@@ -135,42 +160,16 @@ if dominant_arm == "右":
       # ④左肩、右肩、右肘の角度が170度以下なら
       # 肘が危険と判断する。
       if right_shoulder_x <= right_wrist_x <= right_elbow_x and start_file_number <= name_file_number <= last_dir_number and spread_legs and angle <= 170 :
-        cv2.putText(img=annotated_image, 
-                                text='DANGER', 
-                                org=(100,100), 
-                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                fontScale=4.0,
-                                color=(0,0,255),
-                                thickness=9,
-                                lineType=cv2.LINE_4)    
-        
-        cv2.putText(annotated_image, 
-                                text=str(angle), 
-                                org=(100,180), 
-                                fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
-                                fontScale=3.0,
-                                color=(0,0,255),
-                                thickness=8,
-                                lineType=cv2.LINE_4)     
+        # 角度と説明を画像内に描画
+        annotated_image = putText_japanese(annotated_image, "肩のラインより肘が前に出てしまい", (25, 0), 60, (0, 0, 255),1)
+        annotated_image = putText_japanese(annotated_image, "肘に負担がかかっている可能性があります", (25, 70), 60, (0, 0, 255),1)
+        annotated_image = putText_japanese(annotated_image,"両肩と肘を結んだ角度"+str(angle)+"度", (25, 140), 60, (0, 0, 255),1)
       else:
 
-        # 角度を画像内に描画
-        cv2.putText(annotated_image, 
-                                text='SAFETY', 
-                                org=(100,100), 
-                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                fontScale=3.5,
-                                color=(0,255,0),
-                                thickness=7,
-                                lineType=cv2.LINE_4)    
-        cv2.putText(annotated_image, 
-                                text=str(angle), 
-                                org=(100,180), 
-                                fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
-                                fontScale=3.0,
-                                color=(0,255,0),
-                                thickness=6,
-                                lineType=cv2.LINE_4)  
+        # 角度と説明を画像内に描画
+        annotated_image = putText_japanese(annotated_image, "リリース直前から", (25, 0), 60, (0, 255, 0),1)
+        annotated_image = putText_japanese(annotated_image, "肘に負担がかかっていないかをチェックしています", (25, 70), 60, (0, 255, 0),1)
+        annotated_image = putText_japanese(annotated_image, "両肩と肘を結んだ角度"+str(angle)+"度", (25, 140), 60, (0, 255, 0),1)
     except:
       pass
     # 画像に各ランドマークとそれを繋げる線を描画する
@@ -226,40 +225,15 @@ else:
       # ④左肩、右肩、右肘の角度が170度以下なら
       # 肘が危険だと判断する。
       if left_elbow_x <= left_wrist_x <= left_shoulder_x and start_file_number <= name_file_number <= last_dir_number and spread_legs and angle <= 170 :
-        cv2.putText(img=annotated_image, 
-                                text='DANGER', 
-                                org=(100,100), 
-                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                fontScale=4.0,
-                                color=(0,0,255),
-                                thickness=9,
-                                lineType=cv2.LINE_4)    
-        cv2.putText(annotated_image, 
-                                text=str(angle), 
-                                org=(100,180), 
-                                fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
-                                fontScale=3.0,
-                                color=(0,0,255),
-                                thickness=8,
-                                lineType=cv2.LINE_4)     
+        # 角度と説明を画像内に描画
+        annotated_image = putText_japanese(annotated_image, "肩のラインより肘が前に出てしまい", (25, 0), 60, (0, 0, 255),1)
+        annotated_image = putText_japanese(annotated_image, "肘に負担がかかっている可能性があります", (25, 70), 60, (0, 0, 255),1)
+        annotated_image = putText_japanese(annotated_image,"両肩と肘を結んだ角度"+str(angle)+"度", (25, 140), 60, (0, 0, 255),1)
       else:
         # 角度を画像内に描画
-        cv2.putText(annotated_image, 
-                                text='SAFETY', 
-                                org=(100,100), 
-                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                                fontScale=3.5,
-                                color=(0,255,0),
-                                thickness=7,
-                                lineType=cv2.LINE_4)    
-        cv2.putText(annotated_image, 
-                                text=str(angle), 
-                                org=(100,180), 
-                                fontFace=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX,
-                                fontScale=3.0,
-                                color=(0,255,0),
-                                thickness=6,
-                                lineType=cv2.LINE_4)  
+        annotated_image = putText_japanese(annotated_image, "リリース直前から", (25, 0), 60, (0, 255, 0),1)
+        annotated_image = putText_japanese(annotated_image, "肘に負担がかかっていないかをチェックしています", (25, 70), 60, (0, 255, 0),1)
+        annotated_image = putText_japanese(annotated_image, "両肩と肘を結んだ角度"+str(angle)+"度", (25, 140), 60, (0, 255, 0),1)
     except:
       pass
     # 画像に各ランドマークとそれを繋げる線を描画する
