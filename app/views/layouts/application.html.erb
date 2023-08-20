@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
+    <% unless current_page?(login_path) || current_page?(logout_path) %>
       <%= render 'shared/header' %>
       <div id="flash">
         <%= render 'shared/flash' %>
