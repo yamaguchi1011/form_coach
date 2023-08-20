@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show]
   require "open3"
   require 'aws-sdk-s3'
   require "tempfile"

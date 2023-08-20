@@ -16,7 +16,10 @@
                   <%#= link_to t('defaults.back'), "post" , class: "btn btn-sm btn-outline-secondary" %>
                 </ul>
                 <p class="card-text"><%= @post.body %></p>
-                <%= render 'crud_menus', post: @post if current_user.own?(@post)%>
+                <%# ログインしていて、投稿の本人ならcrud_menusを表示する。%>
+                <% if current_user && current_user.own?(@post) %>
+                  <%= render 'crud_menus', post: @post %>
+                <% end %>
               </div>
               <div class="col-md-12">
                 <%#= video_tag @post.video_url,autoplay: true, muted: true, class: 'card-img-bottom ratio', controls: true ,style:"--aspect-ratio: 50%;"unless @post.video.blank?%>

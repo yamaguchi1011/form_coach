@@ -5,7 +5,8 @@
     <div class="my-box flex-fill"><h3 class="small"><%= comment.user.name %></h3></div>
     <div class="my-box flex-fill">
       <div class="text-center">
-        <p class="small border border-primary rounded">高評価数</p>
+      <%# 投稿者名の横にコメントの高評価数を表示する未実装  %>
+        <%# <p class="small border border-primary rounded">高評価数</p> %>
         <h5><%= @user_effectives_count %></h5>
       </div>
     </div>
@@ -16,7 +17,7 @@
     </div>
   </td>
 <%# 自分のコメントであれば編集削除機能が表示される %>
-  <% if current_user.own?(comment) %>
+  <% if current_user && current_user.own?(comment) %>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">
@@ -29,7 +30,7 @@
       </ul>
     </td>
 <%# 自分のコメントではなく、自分の投稿であれば効果あったよボタンを追加する。 %>
-  <%elsif current_user.own?(@post)%>
+  <%elsif  current_user && current_user.own?(@post)%>
     <td class="action">
         <ul class="list-inline justify-content-center" style="float: right;">
           <li class="list-inline-item">

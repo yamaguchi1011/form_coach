@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show]
   def index
     @comments = Comment.all.includes([:user, :effective]).order(created_at: :desc)
   end
