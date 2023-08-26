@@ -1,6 +1,6 @@
 module ApplicationHelper
   def page_title(page_title = '')
-    base_title = 'FROM COACH'
+    base_title = 'FORM COACH'
     page_title.empty? ? base_title : page_title + ' | ' + base_title
   end
 
